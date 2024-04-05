@@ -1,0 +1,16 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+header p{
+    font-style: italic;
+    font-size: 1.25rem;
+}
+
+main {
+    font-size: 1.25rem;
+}
+
+h2 {
+    font-size: larger;
+}
