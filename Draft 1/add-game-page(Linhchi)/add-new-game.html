@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Linh Chi Le">
+    <meta name="description" content="This is where users can add new games">
+    <title>Add New Games</title>
+    <link rel="stylesheet" href="css/add-new-game.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" 
+        type="image/png" 
+        href="img/favicon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../home-page(Zihan)/index.html">Homepage</a></li>
+                <li><a href="../library-page (Sunny)/game-library.html">Game Library</a></li>
+                <li><a href="../search-page (Sunny)/search-page.html">Search Game</a></li>
+                <li><a href="../add-game-page(Linhchi)/add-new-game.html">Add a new game</a></li>
+            </ul>
+        </nav>
+        <a href="../user-profile-page(Dhruv)/user-profile.html" class="cta" href="#"><button>User Profile</button></a>
+       
+    </header>
+
+    <div class="adding-new-game">
+        <h1>Add a New Game</h1>
+        <form>
+            <div class="info-input">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+
+            <div class="info-input-checkbox">
+                <p> Genres:</p>
+                <input type="checkbox" id="genre1" name="genre1" value="Adventure">
+                <label for="genre1"> Adventure</label>
+                <input type="checkbox" id="genre2" name="genre2" value="Action">
+                <label for="genre2"> Action</label>
+                <input type="checkbox" id="genre4" name="genre4" value="Sports">
+                <label for="genre1"> Sports</label>
+                <input type="checkbox" id="genre5" name="genre5" value="Simulation">
+                <label for="genre1"> Simulation</label>
+                <input type="checkbox" id="RPG" name="genre6" value="RPG">
+                <label for="genre1"> RPG</label>
+                <input type="checkbox" id="genre7" name="genre7" value="Shooter">
+                <label for="genre1"> Shooter</label>
+                <input type="checkbox" id="genre8" name="genre8" value="Puzzle">
+                <label for="genre1"> Puzzle</label>
+            </div>
+
+            <div class="info-input">
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price">
+            </div>
+
+            <div class="info-input">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="5"></textarea>
+            </div>
+
+            <button type="submit">Add Game</button>
+        </form>
+    </div>
+
+</body>
+</html>
