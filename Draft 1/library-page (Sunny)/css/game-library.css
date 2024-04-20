@@ -62,3 +62,16 @@ h1 {
   font-size: 4rem;
 }
 
+.rating {
+    display: inline-block;
+    font-size: 20px;
+}
+
+.rating .full-star, .half-star {
+    color: #ffcc00; /* Color for empty stars */
+}
+
+.rating:not(:checked) > input {
+    display: none;
+}
+
