@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="zihan Ren">
+    <meta name="author" content="Linhchi Le, Sunny Yang, Dhruv Ashok, Zihan Ren">
     <meta name="description" content="This is homepage contains a recommendation queue and nagivates us to our functions">
     <title>My Page Title</title>
     <link rel="stylesheet" href="css/index.css">
@@ -20,5 +20,32 @@
         </nav>
         <a href="../user-profile-page(Dhruv)/user-profile.html" class="cta" href="#"><button>User Profile</button></a>
     </header>
+    <div class="container">
+        <h1>Having trouble finding new game?</h1>
+        <img src="img/gamebg.jpg" alt="this is our background image" class="start">
+        <p>
+            Try our website! Our website are designed for game recommendation among various genres.
+            You can access game reviews through Game Library, add a game, search games, and get your daily game
+            recommendation queue use this generator!
+        </p>
+    </div>
+    
+    <div class="container">
+        <button id="getTodayButton">Get today's new game</button>
+        <div id="gameDetails" class="hidden">
+            <p id="gameMessage">
+                WoW! You got ...
+            </p>
+            <p>
+                Phoenix Wright: Ace Attorney Trilogy
+            </p>
+            <img src="img/capsule_616x353.jpeg" alt="Game Image">
+            <div>
+                <button id="resetButton">Reset</button>
+                <button id="saveButton">Save to my list</button>
+            </div>
+        </div>
+    </div>
+    
 </body>
 </html>
