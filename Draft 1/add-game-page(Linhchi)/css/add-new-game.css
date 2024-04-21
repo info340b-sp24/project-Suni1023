@@ -12,6 +12,10 @@ li,a,button {
     text-decoration: none;
 }
 
+.adding-new-game {
+    font-family: Roboto, sans-serif;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -55,7 +59,7 @@ button:hover {
 }
 
 .adding-new-game {
-    max-width: 600px;
+    max-width: 800px;
     padding: 30px;
     margin-left: 25%;
 }
