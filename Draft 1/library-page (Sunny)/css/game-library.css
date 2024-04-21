@@ -59,7 +59,7 @@ button:hover {
 h1 {
   padding: 1rem;  
   margin-bottom: 1rem;
-  color: #893168;
+  color:#893168;
   font-size: 2rem;
 }
 
@@ -93,6 +93,19 @@ img {
     font-size: 1.5rem;
     margin: 1rem;
     justify-content: center;
+}
+
+.game-info a {
+    color: inherit;
+    display: inherit;
+    font-size: inherit;
+    text-decoration: none;
+}
+
+.game-info a:hover {
+    color:#893168;
+    text-decoration: underline;
+    transition: all 0.3s ease 0s;
 }
 
 p {
