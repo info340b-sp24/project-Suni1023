@@ -60,13 +60,16 @@ button:hover {
 
 .adding-new-game {
     max-width: 800px;
-    padding: 30px;
-    margin-left: 25%;
+    display: block;
+    padding: 80px 5% 0;
 }
 
-.adding-new-game h1 {
-    color: #4A1942;
-    padding-bottom: 30px;
+h1 {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    color: #893168;
+    font-size: 2rem;
+    text-align: center;
 }
 
 input[type="text"], textarea {
@@ -99,4 +102,16 @@ label {
 
 .info-input-checkbox p {
     margin-bottom: 5px;
+}
+
+@media (min-width: 992px) 
+{
+    h1 {
+        display: flex;
+        font-size: 3rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
 }
