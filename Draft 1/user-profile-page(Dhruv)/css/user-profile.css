@@ -1,0 +1,158 @@
+*{
+    box-sizing: border-box;
+}
+
+li,a,button {
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #050404;
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    background: #EAEAEA;
+    padding: 10px 5%;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
+}
+
+.nav_links{
+    line-height: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav_links li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+
+.nav_links li a{
+    transform: all;
+}
+
+.nav_links li a:hover{
+    color: #893168;
+}
+
+button{
+    padding: 9px 25px;
+    background-color: #893168;
+    color:#EAEAEA;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: #4A1942; 
+    color: #EAEAEA; 
+}
+
+.bg-header {
+    background-color: #893168;
+}
+
+h1 {
+    font-family: Roboto, sans-serif;
+}
+
+.profile_links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.profile_links li {
+    display: inline-block;
+    padding: 0 1.5rem;
+}
+
+.profile_links li a{
+    transform: all;
+    color: white;
+}
+
+.profile_links li a:hover{
+    color: #eaeaea;
+}
+
+.profile_link_nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1rem;
+    padding: 3% 0% 0% 11%;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+}
+
+.game-info {
+    display: inline;
+    font-size: 1.5rem;
+    margin: 1rem;
+    justify-content: center;
+}
+
+.rating {
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 1rem;
+}
+
+.rating .full-star, .half-star {
+    color: #ffcc00;
+}
+
+.game-image {
+    width: 100px;
+    height: 100%;
+    background-color: #EAEAEA;
+    display: block;
+}
+
+@media (min-width: 992px) 
+{
+    .game-image {
+        width: 220px;
+        height: 220px;
+        margin-top: 1.5rem;
+    }
+
+    .game-library {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+        width: 400px; 
+        height: 350px; 
+        margin: 10px;  
+        border-radius: 10px; 
+    }
+    
+}
+
+/* 
+#eaeaea
+#893168
+#4a1942
+#2e1c2b
+#050404
+*/
