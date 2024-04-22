@@ -1,0 +1,266 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, sans-serif;
+}
+
+li,a,button {
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #050404;
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    background: #EAEAEA;
+    padding: 10px 5%;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
+}
+
+nav {
+    line-height: none;
+}
+
+nav li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+
+nav li a{
+    transform: all;
+}
+
+nav li a:hover{
+    color: #893168;
+}
+
+button{
+    padding: 9px 25px;
+    background-color: #893168;
+    color:#EAEAEA;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: #4A1942; 
+    color: #EAEAEA; 
+}
+
+.library-title {
+  padding: 1rem;  
+  margin-bottom: 1rem;
+  color:#893168;
+  font-size: 2rem;
+}
+
+
+.rating {
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 1rem;
+}
+
+.rating .full-star, .half-star {
+    color: #ffcc00;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+}
+
+.game-image {
+    width: 100px;
+    height: 100%;
+    background-color: #EAEAEA;
+    display: block;
+}
+
+.game-info {
+    display: inline;
+    font-size: 1.5rem;
+    margin: 1rem;
+    justify-content: center;
+}
+
+.game-info a {
+    color: inherit;
+    display: inherit;
+    font-size: inherit;
+    text-decoration: none;
+}
+
+.game-info a:hover {
+    color:#893168;
+    text-decoration: underline;
+    transition: all 0.3s ease 0s;
+}
+
+.detail-game-title {
+    padding: 1rem;  
+    color:#4A1942;
+    font-size: 2rem;
+}
+
+.detail-image {
+    width: 100%;
+    height: auto;
+}
+
+.detail-time, .detail-bookmark, .detail-list {
+    margin: 1rem;
+
+}
+
+.detail-publish-year, .detail-bookmark-title {
+    font-weight: 500;
+}
+
+.detail-model {
+    margin-top: 0.5rem;
+    text-decoration: none;
+    font-weight:300;
+}
+
+.detail-publish-time {
+    margin-left: 0.5rem;
+    font-weight: lighter;
+    text-decoration:underline;
+}
+
+p {
+    margin: 1rem;
+}
+/* COPY:footer start*/
+footer {
+    display: none;
+}
+/* COPY: STOP, continue, scroll down */
+
+.menu, .nav-menu{
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .menu {
+        display: block;
+    }
+
+    .menu-line {
+        display: none;
+    }
+
+    .menu, .menu-line {
+        max-height: 40px;
+    }
+    
+    .favicon {
+        max-width: 25px;
+    }
+
+    .menu-container {
+        display: flex;
+        align-items: center;
+        list-style-type: none; 
+        padding: 0; 
+    }
+    
+    .menu-container li {
+        margin-right: 20px; 
+    }
+    
+    .menu-container li:last-child {
+        margin-right: 0; 
+    }
+
+    footer{
+        display: none;
+    }
+}
+/* nav responsive end */
+
+
+@media (min-width: 992px) 
+{
+    
+    .library-title {
+        display: flex;
+        font-size: 3rem;
+        margin-top: 2rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .game-image {
+        width: 220px;
+        height: 220px;
+        margin-top: 1.5rem;
+    }
+
+    .game-library {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: left;
+    }
+
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+        width: 355px; 
+        height: 350px; 
+        margin: 10px;  
+        border-radius: 10px; 
+    }
+
+    .flex-container {
+        display: flex;
+    }
+    .paragraph-section {
+        flex-basis: 1000px;   
+    }
+/* COPY: footer continue */
+    footer {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        height: 220px;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        color: #893168;
+        background: #EAEAEA;
+        box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    }
+
+    footer p a {
+        text-decoration: none;
+        color:#4A1942;
+    }
+
+    .material-icons {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+    /* COPY: end. remember copy the media queries -> @media (min-width: 992px) */
+    
+}
+
