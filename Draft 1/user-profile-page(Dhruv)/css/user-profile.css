@@ -149,6 +149,74 @@ h1 {
     
 }
 
+/* copy responsive css for the nav bar */
+.menu, .nav-menu{
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .menu {
+        display: block;
+    }
+
+    .menu-line {
+        display: none;
+    }
+
+    .menu, .menu-line {
+        max-height: 40px;
+    }
+    
+    .favicon {
+        max-width: 25px;
+    }
+
+    .menu-container {
+        display: flex;
+        align-items: center;
+        list-style-type: none; 
+        padding: 0; 
+    }
+    
+    .menu-container li {
+        margin-right: 20px; 
+    }
+    
+    .menu-container li:last-child {
+        margin-right: 0; 
+    }
+
+    footer{
+        display: none;
+    }
+}
+/* nav responsive end */
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 220px;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    color: #893168;
+    background: #EAEAEA;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+footer p a {
+    text-decoration: none;
+    color:#4A1942;
+}
+
+.material-icons {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
 /* 
 #eaeaea
 #893168
