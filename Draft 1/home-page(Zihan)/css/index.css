@@ -11,8 +11,8 @@ h1, p{
     color: #4A1942;
 }
 
-.start{
-    width: 600px;
+img{
+    max-width: 400px;
 }
 
 .container{
@@ -22,6 +22,75 @@ h1, p{
     padding: 1rem;
 }
 
+#gameDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+}
+
+#resetButton, #saveButton{
+    margin-right: 50px; 
+}
+
+
+/* copy responsive css for the nav bar */
+.menu, .nav-menu{
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .menu {
+        display: block;
+    }
+
+    .menu-line {
+        display: none;
+    }
+
+    .menu, .menu-line {
+        max-height: 40px;
+    }
+    
+    .favicon {
+        max-width: 25px;
+    }
+
+    .menu-container {
+        display: flex;
+        align-items: center;
+        list-style-type: none; 
+        padding: 0; 
+    }
+    
+    .menu-container li {
+        margin-right: 20px; 
+    }
+    
+    .menu-container li:last-child {
+        margin-right: 0; 
+    }
+
+    footer{
+        display: none;
+    }
+}
+/* nav responsive end */
+
+@media (max-width: 768px){
+    .start {
+        display: none;
+    }
+    
+    img {
+        max-width: 100%; 
+        height: auto;
+    }
+}
+
+/* [not responsive] basic css for the navigation bar */
+/* keep sealed */
 li,a,button {
     font-family: Roboto, sans-serif;
     font-weight: 500;
@@ -72,3 +141,4 @@ button:hover {
     background-color: #4A1942; 
     color: #EAEAEA; 
 }
+

@@ -2,14 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="Linhchi Le, Sunny Yang, Dhruv Ashok, Zihan Ren">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Linhchi Le, Sunny Yang, Dhruv Ashok, Zihan/Terianno Ren">
     <meta name="description" content="This is homepage contains a recommendation queue and nagivates us to our functions">
-    <title>My Page Title</title>
+    <title>Homepage</title>
     <link rel="stylesheet" href="css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- copy- hamburger icon used in the nagivation bar for responsive design -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <!-- copy nav bar's part start -->
+    <!-- nav bar's responsive for small screen -->
+    <header class="menu">
+        <ul class="menu-container">
+            <li id="hamburger-menu"><i class="fa fa-bars" aria-label="menu"></i></li>
+            <li><img src="img/favicon.png" class="favicon"></li>
+        </ul>
+
+        <nav class="nav-menu">
+            <img src="img/favicon.png">
+            <ul>
+                <li><a href="../home-page(Zihan)/index.html">Homepage</a></li>
+                <li><a href="../library-page (Sunny)/game-library.html">Game Library</a></li>
+                <li><a href="../search-page (Sunny)/search-page.html">Search Game</a></li>
+                <li><a href="../add-game-page(Linhchi)/add-new-game.html">Add a new game</a></li>
+                <li><a href="../user-profile-page(Dhruv)/user-profile.html">User Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- nav bar's responsive for web-page -->
+    <header class="menu-line">
         <nav>
             <ul class="nav_links">
                 <li><a href="../home-page(Zihan)/index.html">Homepage</a></li>
@@ -20,18 +44,22 @@
         </nav>
         <a href="../user-profile-page(Dhruv)/user-profile.html" class="cta" href="#"><button>User Profile</button></a>
     </header>
+    <!-- nav bar's part end -->
+    
+    <!-- intro and recommendation feature-->
     <div class="container">
-        <h1>Having trouble finding new game?</h1>
-        <img src="img/gamebg.jpg" alt="this is our background image" class="start">
+        <h1>Having trouble finding new games to play?</h1>
+        <img src="img/gamebg.jpg" alt="this is our background image" aria-label="This is a decotarional background image" class="start">
         <p>
-            Try our website! Our website are designed for game recommendation among various genres.
+            Try our website! Our website is designed for game recommendation among various genres.
             You can access game reviews through Game Library, add a game, search games, and get your daily game
             recommendation queue use this generator!
         </p>
+
+        <button id="getTodayButton">Get today's new game</button>
     </div>
     
     <div class="container">
-        <button id="getTodayButton">Get today's new game</button>
         <div id="gameDetails" class="hidden">
             <p id="gameMessage">
                 WoW! You got ...
@@ -39,13 +67,24 @@
             <p>
                 Phoenix Wright: Ace Attorney Trilogy
             </p>
-            <img src="img/capsule_616x353.jpeg" alt="Game Image">
+            <img src="img/capsule_616x353.jpeg" alt="Phoenix Wright: Ace Attorney Trilogy" aria-label="This is a game called Phoenix Wright: Ace Attorney Trilogy">
             <div>
                 <button id="resetButton">Reset</button>
                 <button id="saveButton">Save to my list</button>
             </div>
         </div>
     </div>
+
+    <footer>
+        <div class="footer-content">
+          <a href="#">Home</a> |
+          <a href="#">Games</a> |
+          <p><a href="mailto:email@group-bb.uw.edu"><span class="material-icons">email</span> email@group-bb.uw.edu</a></p>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2024 Homepage. All rights reserved.</p>
+        </div>
+    </footer>
     
 </body>
 </html>
