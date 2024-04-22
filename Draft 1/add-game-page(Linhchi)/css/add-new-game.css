@@ -61,11 +61,11 @@ button:hover {
 .adding-new-game {
     max-width: 800px;
     display: block;
-    padding: 80px 5% 0;
+    padding: 0 5% 0;
 }
 
 h1 {
-    padding: 1rem;
+    padding: 80px 1rem 1rem;
     margin-bottom: 1rem;
     color: #893168;
     font-size: 2rem;
