@@ -115,3 +115,47 @@ label {
     }
     
 }
+
+/* copy responsive css for the nav bar */
+.menu, .nav-menu{
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .menu {
+        display: block;
+    }
+
+    .menu-line {
+        display: none;
+    }
+
+    .menu, .menu-line {
+        max-height: 40px;
+    }
+    
+    .favicon {
+        max-width: 25px;
+    }
+
+    .menu-container {
+        display: flex;
+        align-items: center;
+        list-style-type: none; 
+        padding: 0; 
+    }
+    
+    .menu-container li {
+        margin-right: 20px; 
+    }
+    
+    .menu-container li:last-child {
+        margin-right: 0; 
+    }
+
+    footer{
+        display: none;
+    }
+}
+/* nav responsive end */

@@ -2,21 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Linh Chi Le">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Linhchi Le, Sunny Yang, Dhruv Ashok, Zihan/Terianno Ren">
     <meta name="description" content="This is where users can search and filter for games">
-    <title>Search for Games</title>
+    <title>Homepage</title>
     <link rel="stylesheet" href="css/search-page.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="icon" 
-        type="image/png" 
-        href="../library-page (Sunny)/img/favicon.png">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <!-- copy- hamburger icon used in the nagivation bar for responsive design -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
 <body>
-    <header>
-        <nav>
+    <!-- copy nav bar's part start -->
+    <!-- nav bar's responsive for small screen -->
+    <header class="menu">
+        <ul class="menu-container">
+            <li id="hamburger-menu"><i class="fa fa-bars" aria-label="menu"></i></li>
+            <li><img src="img/favicon.png" class="favicon"></li>
+        </ul>
+
+        <nav class="nav-menu">
+            <img src="img/favicon.png">
             <ul>
+                <li><a href="../home-page(Zihan)/index.html">Homepage</a></li>
+                <li><a href="../library-page (Sunny)/game-library.html">Game Library</a></li>
+                <li><a href="../search-page (Sunny)/search-page.html">Search Game</a></li>
+                <li><a href="../add-game-page(Linhchi)/add-new-game.html">Add a new game</a></li>
+                <li><a href="../user-profile-page(Dhruv)/user-profile.html">User Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- nav bar's responsive for web-page -->
+    <header class="menu-line">
+        <nav>
+            <ul class="nav_links">
                 <li><a href="../home-page(Zihan)/index.html">Homepage</a></li>
                 <li><a href="../library-page (Sunny)/game-library.html">Game Library</a></li>
                 <li><a href="../search-page (Sunny)/search-page.html">Search Game</a></li>
@@ -24,8 +43,9 @@
             </ul>
         </nav>
         <a href="../user-profile-page(Dhruv)/user-profile.html" class="cta" href="#"><button>User Profile</button></a>
-       
     </header>
+    <!-- nav bar's part end -->
+
 
 <body>
 
@@ -149,6 +169,16 @@
 
 </div>
 
+<footer>
+    <div class="footer-content">
+      <a href="#">Home</a> |
+      <a href="#">Games</a> |
+      <p><a href="mailto:email@group-bb.uw.edu"><span class="material-icons">email</span> email@group-bb.uw.edu</a></p>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2024 Homepage. All rights reserved.</p>
+    </div>
+</footer>
 
 </body>
 </html>
