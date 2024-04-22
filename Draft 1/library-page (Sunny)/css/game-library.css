@@ -144,10 +144,11 @@ button:hover {
 p {
     margin: 1rem;
 }
-
+/* COPY:footer start*/
 footer {
     display: none;
 }
+/* COPY: STOP, continue, scroll down */
 
 .menu, .nav-menu{
     display: none;
@@ -235,7 +236,7 @@ footer {
     .paragraph-section {
         flex-basis: 1000px;   
     }
-
+/* COPY: footer continue */
     footer {
         position: relative;
         bottom: 0;
@@ -259,6 +260,7 @@ footer {
         margin: 0;
         padding: 0;
     }
+    /* COPY: end. remember copy the media queries -> @media (min-width: 992px) */
     
 }
 
