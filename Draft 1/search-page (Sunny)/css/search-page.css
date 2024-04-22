@@ -123,6 +123,16 @@ h1 {
     font-family: Roboto, sans-serif;
 }
 
+/* COPY:footer start*/
+footer {
+    display: none;
+}
+/* COPY: STOP, continue, scroll down */
+
+p {
+    margin: 1rem;
+}
+
 @media (min-width: 992px) 
 {
     h1 {
@@ -203,28 +213,8 @@ h1 {
         margin-right: 0; 
     }
 
-    footer {
-        position: relative;
-        bottom: 0;
-        width: 100%;
-        height: 220px;
-        padding: 0.5rem;
-        display: flex;
-        flex-direction: column;
-        color: #893168;
-        background: #EAEAEA;
-        box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-    }
-
-    footer p a {
-        text-decoration: none;
-        color:#4A1942;
-    }
-    
-    .material-icons {
-        display: inline-block;
-        margin: 0;
-        padding: 0;
+    footer{
+        display: none;
     }
     
 }
