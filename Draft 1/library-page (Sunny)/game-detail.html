@@ -10,16 +10,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="icon" 
         type="image/png" 
-        href="img/favicon.png">
+        href="../library-page (Sunny)/img/favicon.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
-        rel="stylesheet" > -->
 </head>
 <body>
-    <header>
-        <nav>
+    <!-- nav bar's responsive for small screen -->
+    <header class="menu">
+        <ul class="menu-container">
+            <li id="hamburger-menu"><i class="fa fa-bars" aria-label="menu"></i></li>
+            <li><img src="img/favicon.png" class="favicon"></li>
+        </ul>
+
+        <nav class="nav-menu">
+            <img src="img/favicon.png">
             <ul>
+                <li><a href="../home-page(Zihan)/index.html">Homepage</a></li>
+                <li><a href="../library-page (Sunny)/game-library.html">Game Library</a></li>
+                <li><a href="../search-page (Sunny)/search-page.html">Search Game</a></li>
+                <li><a href="../add-game-page(Linhchi)/add-new-game.html">Add a new game</a></li>
+                <li><a href="../user-profile-page(Dhruv)/user-profile.html">User Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- nav bar's responsive for web-page -->
+    <header class="menu-line">
+        <nav>
+            <ul class="nav_links">
                 <li><a href="../home-page(Zihan)/index.html">Homepage</a></li>
                 <li><a href="../library-page (Sunny)/game-library.html">Game Library</a></li>
                 <li><a href="../search-page (Sunny)/search-page.html">Search Game</a></li>
@@ -27,17 +46,85 @@
             </ul>
         </nav>
         <a href="../user-profile-page(Dhruv)/user-profile.html" class="cta" href="#"><button>User Profile</button></a>
-
     </header>
+    <!-- nav bar's part end -->
+
+    <main>
+        <div class="detail-container">
+                <div class="detail-image">
+                    <img src="img/Destiny-2-Official-Reveal-Art.jpg" alt="Game sign for Destiny2"  class="detail-image">
+                </div>
+
+            <section class="flex-container">
+                <section class="paragraph-section">
+                    <div class="detail-description">
+                        <h1 class="detail-game-title">Distiny 2</h1>
+                        <p class="description">
+                            Destiny 2 is a free-to-play online first-person shooter game developed by Bungie. It was originally released in 2017 as a paid game forPlayStation 4,  
+                            Xbox One, and Windows. it became free-to-play on October 1, 2019 under the New Light name with the Game as a Service model, which was followed by the game's release 
+                            on Stadia the following month , and subsequently in 2019 onPlayStation 5 and Xbox Series X/S platforms . 2020 December. The game was published by Activision until December 31, 2018, when Bungie acquired the rights to publish the series. It is a sequel to 2014's Destiny and its subsequent expansion packs.
+                        </p>
+                        <p class="description">
+                            The game is set in a "mythological science fiction " world with a multiplayer "shared world" environment with role-playing game elements. As with the original, the campaign in 
+                            Destiny 2 is divided into Player versus Environment (PvE) and Player versus Player (PvP) game types. In addition to the normal story missions, PvE includes three-player " strikes " 
+                            as well as dungeons and six-player raids. Each destination also offers a free roaming patrol mode, which includes public events as well as events not offered in the original version. The focus of these campaigns is on exploring destinations and interacting with 
+                            non-player characters (NPCs); the original Destiny only featured NPCs in the social space. PvP features objective-based modes as well as traditional deathmatch game modes.
+                        </p>
+                        <p class="description">
+                            Players take on the role of the Guardians, protectors of the last safe city on Earth, who utilize a power called Light to protect humanity from various alien races and fight against 
+                            the looming threat of the Darkness. Like the original Destiny, the game features expansion packs that further the story and add new content throughout the game. The first year of Destiny 2 
+                            featured two small expansion packs, Curse of Osiris and Warmind. The third major expansion pack , The Forsaken Clan, began the second year with a complete overhaul of the gameplay. The release of the next expansion pack, 
+                            Fortress of Shadows (October 2019), began in the third year. Shadow Fortress and future releases are considered standalone releases and do not require players to own previous premium content. Released alongside the fourth expansion pack is a version of Destiny 2 
+                            called New Light, which is a free remake of Destiny 2 that also includes access to the first two expansion packs. A separate season pass is also available for each season's content. While the main game of Destiny 2 is already free, all other content will need to be purchased.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="time-section">
+                    <div class="detail-time">
+                        <h2 class="detail-publish-year">Published Year</h2>
+                        <ul class="detail-list">
+                        <li>
+                            <span class="detail-model">PlayStation 4, Xbox One:</span>
+                            <time class="detail-publish-time">September 6, 2017</time>
+                        </li>
+                        <li>
+                            <span class="detail-model">Windows:</span>
+                            <time class="detail-publish-time">October 24, 2017</time>
+                        </li>
+                        <li>
+                            <span class="detail-model">Stadia:</span>
+                            <time class="detail-publish-time">November 19, 2019</time>
+                        </li>
+                        <li>
+                            <span class="detail-model">PS5, Xbox Series X/S:</span>
+                            <time class="detail-publish-time">December 8, 2020</time>
+                        </li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+
+                <section class="bookmark-section">
+                    <div class="detail-bookmark">
+                        <h2 class="detail-bookmark-title">Bookmarks:</h2>
+                        <p>There is 650 people bookmarked this game!</p>
+                    </div>
+                </section>
+            
+        </div>
+
+    </main>
 
     <footer>
         <div class="footer-content">
-          <a href="#">Home</a> |
-          <a href="#">Games</a> |
+          <p><a href="../home-page(Zihan)/index.html"><span class="material-icons">home</span>Home</a></p>
+          <p><a href="../search-page (Sunny)/search-page.html"><span class="material-icons">search</span>Search</a></p>
           <p><a href="mailto:email@group-bb.uw.edu"><span class="material-icons">email</span> email@group-bb.uw.edu</a></p>
         </div>
         <div class="copyright">
           <p>&copy; 2024 Game Library. All rights reserved.</p>
         </div>
     </footer>
+
 </body>
