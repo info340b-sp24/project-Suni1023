@@ -11,8 +11,12 @@ h1, p{
     color: #4A1942;
 }
 
+p{
+    font-size: large;
+}
+
 img{
-    max-width: 400px;
+    max-width: 600px;
 }
 
 .container{
@@ -22,17 +26,62 @@ img{
     padding: 1rem;
 }
 
-#gameDetails {
+.container .image {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.gameDetails {
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center; 
 }
 
-#resetButton, #saveButton{
+.Botton-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+}
+
+.getTodayButton {  
+    padding: 20px 30px; 
+    font-size: 18px; 
+    cursor: pointer;
+    border: none;
+    background-color: #893168; 
+    color:#EAEAEA;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.getTodayButton:hover {
+    background-color: #4A1942; 
+    color: #EAEAEA; 
+}
+
+.resetsave{
     margin-right: 50px; 
 }
 
+.container h1{
+    margin-bottom: 15px; 
+}
+
+.container .image {
+    margin-bottom: 30px;  
+}
+
+/* .container p {
+    margin-bottom: 30px;  
+} */
+
+.container p {
+    margin-bottom: 30px;  
+}
 
 /* copy responsive css for the nav bar */
 .menu, .nav-menu{
@@ -49,12 +98,20 @@ img{
         display: none;
     }
 
-    .menu, .menu-line {
+    .menu {
         max-height: 40px;
     }
     
     .favicon {
         max-width: 25px;
+    }
+
+    .hamburger-menu {
+        margin-right: 10px; 
+    }
+    
+    .favicon {
+        margin-left: 10px; 
     }
 
     .menu-container {
@@ -118,7 +175,6 @@ header{
     padding: 0px 20px;
 }
 
-
 .nav_links li a{
     transform: all;
 }
@@ -141,4 +197,3 @@ button:hover {
     background-color: #4A1942; 
     color: #EAEAEA; 
 }
-

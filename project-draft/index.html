@@ -19,12 +19,13 @@
     <!-- nav bar's responsive for small screen -->
     <header class="menu">
         <ul class="menu-container">
-            <li id="hamburger-menu"><i class="fa fa-bars" aria-label="menu"></i></li>
+            <div class="hamburger-menu"><a href="#"><i class="fa fa-bars" aria-label="menu"></i></a></div>
             <li><img src="img/favicon.png" class="favicon"></li>
         </ul>
 
         <nav class="nav-menu">
-            <img src="img/favicon.png">
+            <!-- <div id="hamburger-menu"><a href="#"><i class="fa fa-bars" aria-label="menu"></i></a></div> -->
+            <!-- <img src="img/favicon.png"> -->
             <ul>
                 <li><a href="index.html">Homepage</a></li>
                 <li><a href="game-library.html">Game Library</a></li>
@@ -52,28 +53,39 @@
     <!-- intro and recommendation feature-->
     <div class="container">
         <h1>Having trouble finding new games to play?</h1>
-        <img src="img/gamebg.jpg" alt="this is our background image" aria-label="This is a decotarional background image" class="start">
+        <div class="image">
+            <img src="img/gamebg.jpg" alt="this is our background image" aria-label="This is a decotarional background image" class="start">
+        </div>
+
+        <!-- <h2>
+            Try our website! Our website is designed for game recommendation among various genres.
+            You can access game reviews through Game Library, add a game, search games, and get your daily game
+            recommendation queue use this generator!
+        </h2> -->
+
         <p>
             Try our website! Our website is designed for game recommendation among various genres.
             You can access game reviews through Game Library, add a game, search games, and get your daily game
             recommendation queue use this generator!
         </p>
 
-        <button id="getTodayButton">Get today's new game</button>
+        <div class="Botton-container">
+            <button class="getTodayButton">Get today's new Game!</button>
+        </div>
     </div>
     
-    <div class="container">
-        <div id="gameDetails" class="hidden">
-            <p id="gameMessage">
+    <div class="container-game detail">
+        <div class="gameDetails">
+            <p class="gameMessage">
                 WoW! You got ...
             </p>
             <p>
                 Phoenix Wright: Ace Attorney Trilogy
             </p>
             <img src="img/capsule_616x353.jpeg" alt="Phoenix Wright: Ace Attorney Trilogy" aria-label="This is a game called Phoenix Wright: Ace Attorney Trilogy">
-            <div>
-                <button id="resetButton">Reset</button>
-                <button id="saveButton">Save to my list</button>
+            <div class="resetsave">
+                <button class="resetButton">Reset</button>
+                <button class="saveButton">Save to my list</button>
             </div>
         </div>
     </div>
