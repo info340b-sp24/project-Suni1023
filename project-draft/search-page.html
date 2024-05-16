@@ -51,14 +51,19 @@
 <body>
 
 <div class="search-page">
-    <h1>Game Search</h1>
-    <div class="search-bar">
-        <input type="text" id="search" name="search" placeholder="Search">
-        <button>Submit</button>
-    </div>
+    <h1>Search Game</h1>
 
+    <div class="content-container">
+    <div class="filters"> <!--Filters section -->
+
+        <div class="search-bar">
+            <input type="text" id="search" name="search" placeholder="Search">
+            <button>Submit</button>
+        </div>
+    
+    <div class="category-container">
     <div class="genre">
-        <h3> Genre</h3>
+        <h2> Genre</h2>
         <label>
             <input type="checkbox" name="adventure"> Adventure
         </label>
@@ -87,9 +92,11 @@
             <input type="checkbox" name="puzzle"> Puzzle
         </label>
     </div>
+</div>
 
+<div class="category-container">
         <div class="price">
-            <h3> Price</h3>
+            <h2> Price</h2>
             <label>
                 <input type="checkbox" name="free"> Free
             </label>
@@ -106,9 +113,11 @@
                 <input type="checkbox" name="high-price"> $$$
             </label>
         </div>
+    </div>
 
+    <div class="category-container">
         <div class="rating">
-            <h3> Rating</h3>
+            <h2> Rating</h2>
             <div class="rating-star">
                 <label>
                     <input type="checkbox" name="one-star"> ★
@@ -130,9 +139,12 @@
                     <input type="checkbox" name="five-star"> ★★★★★
                 </label>
         </div>
+    </div>
+</div>
 
+    <div class="category-container">
         <div class="platform">
-            <h3> Platform</h3>
+            <h2> Platform</h2>
                 <label>
                     <input type="checkbox" name="pc"> PC
                 </label>
@@ -161,13 +173,95 @@
                     <input type="checkbox" name="macos"> macOS
                 </label>
         </div>
+    </div>
 
+
+    <div class="category-container">
         <div class="release-year">
-            <h3> Release Year</h3>
+            <h2> Release Year</h2>
                 <input type="text" id="year" name="year">
             </div>
         </div>
+    </div>
 
+        <div class="game-library">
+            <div class="game-container">
+                <img src="img/Valorant.webp" alt="A sign for Valorant" class="game-image">
+                    <div class="game-info">
+                    <a href="game-detail.html" class="game-title">Valorant</a>
+                    <div class="rating">
+                        <span class="full-star">★</span>  
+                        <span class="full-star">★</span>  
+                        <span class="full-star">★</span>  
+                        <span class="full-star">★</span>  
+                        <span class="half-star">☆</span>  
+                        <span class="ratio">(4.5/5)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="game-container">
+                <img src="img/Destiny2.webp" alt="Game sign for Destiny2"  class="game-image"> 
+                    <div class="game-info">
+                        <a href="game-detail.html" class="game-title">Destiny 2</a>
+                    <div class="rating">
+                        <span class="full-star">★</span>  
+                        <span class="full-star">★</span>  
+                        <span class="full-star">★</span>  
+                        <span class="full-star">★</span>  
+                        <span class="full-star">★</span>  
+                        <span class="ratio">(5/5)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-container">
+                <img src="img/lol-logo.png" alt="Game sign for legends" class="game-image">               
+                    <div class="game-info">
+                        <a href="game-detail.html" class="game-title">League of Legend</a>
+                    <div class="rating">
+                        <span class="full-star">★</span>  
+                        <span class="full-star">★</span>  
+                        <span class="full-star">★</span>  
+                        <span class="full-star">★</span>  
+                        <span class="half-star">☆</span>  
+                        <span class="ratio">(4.5/5)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-container">
+                <img src="img/Minecraft.png" alt="Game sign for Minecraft"  class="game-image">
+                    <div class="game-info">
+                        <a href="game-detail.html" class="game-title">Minecraft</a>
+                    <div class="rating">
+                        <span class="full-star">★</span>  
+                        <span class="full-star">★</span>  
+                        <span class="full-star">★</span>  
+                        <span class="full-star">★</span>  
+                        <span class="full-star">★</span>  
+                        <span class="ratio">(5/5)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-container">
+                <img src="img/Phoenix_Wright_-_Ace_Attorney_Coverart.png" alt="Game logo for Phoenix Wright"  class="game-image">
+                    <div class="game-info">
+                        <a href="game-detail.html" class="game-title">Phoenix Wright</a>
+                    <div class="rating">
+                        <span class="full-star">★</span>  
+                        <span class="full-star">★</span>  
+                        <span class="full-star">★</span>  
+                        <span class="full-star">★</span>  
+                        <span class="full-star">★</span>  
+                        <span class="ratio">(5/5)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <footer>
