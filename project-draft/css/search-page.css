@@ -63,25 +63,27 @@ h1 {
     font-size: 2rem;
   }
 
+.search-bar {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 2em; 
+}
+
 .search-bar input[type="text"]{
     padding: 10px 20px;
     border: 1px solid #bdbdbd;;
     border-radius: 5px;
+    margin-right: 1em;
 }
 
 .search-bar button{
-    padding: 10px 20px;
+    padding: 10px 50px;
     background-color: #893168;
     color:#EAEAEA;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
-}
-
-.genre {
-    display: flex;
-    flex-direction: column;
 }
 
 .genre {
@@ -123,6 +125,82 @@ h1 {
     font-family: Roboto, sans-serif;
 }
 
+
+/* Game section */
+
+
+
+.rating .full-star, .half-star {
+    color: #ffcc00;
+}
+
+
+.game-container {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+}
+
+.game-image {
+    width: 100px;
+    height: 100%;
+    background-color: #EAEAEA;
+    display: block;
+}
+
+.game-info {
+    display: inline;
+    font-size: 1.5rem;
+    margin: 1rem;
+    justify-content: center;
+}
+
+.game-info a {
+    color: inherit;
+    display: inherit;
+    font-size: inherit;
+    text-decoration: none;
+}
+
+.game-info a:hover {
+    color:#893168;
+    text-decoration: underline;
+    transition: all 0.3s ease 0s;
+}
+
+
+
+
+
+/* Flexboxes */
+
+.content-container {
+    display: flex; 
+    justify-content: space-between; 
+}
+
+/* Filters section */
+.filters {
+    flex: 1; 
+    margin-right: 15px; 
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 5px;
+}
+
+.category-container {
+    margin-bottom: 1em;
+}
+
+.filters h2 {
+    margin-bottom: 5px;
+}
+
+
+
+
 /* COPY:footer start*/
 footer {
     display: none;
@@ -144,7 +222,7 @@ p {
     }
 
     .release-year input[type="text"]{
-        padding: 10px 20px;
+        padding: 10px 70px;
         border: 1px solid #bdbdbd;;
         border-radius: 5px;
         width: 20%;
@@ -173,6 +251,48 @@ p {
         margin: 0;
         padding: 0;
     }
+
+    .library-title {
+        display: flex;
+        font-size: 3rem;
+        margin-top: 2rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .game-image {
+        width: 220px;
+        height: 220px;
+        margin-top: 1.5rem;
+    }
+
+    .game-library {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: left;
+    }
+
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+        width: 300px; 
+        height: 350px; 
+        margin: 10px;  
+        border-radius: 10px; 
+        margin-bottom: 2em;
+    }
+
+    .flex-container {
+        display: flex;
+    }
+    .paragraph-section {
+        flex-basis: 1000px;   
+    }
+
 }
 
 /* copy responsive css for the nav bar */
@@ -216,5 +336,36 @@ p {
     footer{
         display: none;
     }
+
+    /* Code for game container sizing */
+
+    .filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .category-container {
+        flex-basis: 50%;
+        margin-bottom: 20px;
+    }
+
+    .game-image {
+        width: 100px;
+        height: 100%;
+        background-color: #EAEAEA;
+        display: block;
+        margin-top: 1em;
+        margin-left: 1em;
+    }
+
+    .release-year input[type="text"]{
+        padding: 10px 70px;
+        border: 1px solid #bdbdbd;;
+        border-radius: 5px;
+        width: 40%;
+    }
     
 }
+

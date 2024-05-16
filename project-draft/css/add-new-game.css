@@ -14,6 +14,8 @@ li,a,button {
 
 .adding-new-game {
     font-family: Roboto, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 header {
@@ -51,6 +53,7 @@ button {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
+    margin-bottom: 5em;
 }
 
 button:hover {
