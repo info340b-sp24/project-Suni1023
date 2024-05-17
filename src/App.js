@@ -4,6 +4,7 @@ import Navbar from './components/Navbar.js';
 import Footer from './components/Footer.js';
 import { GameCardList } from './components/GameCardList.js';
 import { ProfilePage } from './components/ProfilePage.js';
+import { Filters } from './components/Filters.js';
 
 function App(props) {
   
@@ -13,6 +14,10 @@ function App(props) {
       {/* <GameCardList games={props.games} /> */}
       {/* <Footer /> */}
       <ProfilePage games={props.games.slice(5, 10)} />
+      <Navbar />
+      <GameCardList games={props.games} />
+      <Footer />
+      <Filters />
     </div>
   );
 }
