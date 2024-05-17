@@ -15,7 +15,7 @@ p{
     font-size: large;
 }
 
-img{
+.container .background img{
     max-width: 600px;
 }
 
@@ -26,7 +26,7 @@ img{
     padding: 1rem;
 }
 
-.container .image {
+.container .background {
     display: flex;
     justify-content: center; 
     align-items: center;
@@ -74,10 +74,6 @@ img{
 .container .image {
     margin-bottom: 30px;  
 }
-
-/* .container p {
-    margin-bottom: 30px;  
-} */
 
 .container p {
     margin-bottom: 30px;  
@@ -132,6 +128,15 @@ img{
     footer{
         display: none;
     }
+
+    .container .background img{
+        display: none;
+    }
+
+    .gameDetails img{
+        max-width: 100%;  
+        height: auto;  
+    }
 }
 /* nav responsive end */
 
@@ -140,9 +145,15 @@ img{
         display: none;
     }
     
-    img {
+    /* img {
         max-width: 100%; 
         height: auto;
+    } */
+    
+    .game-container .game-image {
+        width: 220px; 
+        height: auto;
+        margin-top: 1.5rem;
     }
 
     .library-title {
@@ -154,11 +165,11 @@ img{
         text-align: center;
     }
 
-    .game-image {
+    /* .game-image {
         width: 220px;
         height: 220px;
         margin-top: 1.5rem;
-    }
+    } */
 
     .game-library {
         display: flex;
@@ -186,6 +197,7 @@ img{
     .flex-container {
         display: flex;
     }
+
     .paragraph-section {
         flex-basis: 1000px;   
     }
@@ -289,7 +301,8 @@ button:hover {
   
   .game-container {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
+      /* align-items: center; */
       margin: 1rem;
       border-radius: 5px;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
@@ -303,7 +316,9 @@ button:hover {
   }
   
   .game-info {
-      display: inline;
+      /* display: inline; */
+      display: flex;
+      flex-direction: column;
       font-size: 1.5rem;
       margin: 1rem;
       justify-content: center;
@@ -357,9 +372,5 @@ button:hover {
   p {
       margin: 1rem;
   }
-  
-  /* .menu, .nav-menu{
-      display: none;
-  } */
 
   /* Sunny's part end */

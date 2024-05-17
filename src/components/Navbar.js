@@ -5,7 +5,8 @@ export default function Navbar() {
         <div>
             <header className="menu">
                 <ul className="menu-container">
-                    <li id="hamburger-menu"><i className="fa fa-bars" aria-label="menu"></i></li>
+                    {/* <li id="hamburger-menu"><i className="fa fa-bars" aria-label="menu"></i></li> */}
+                    <a href="#menu"><i className="fa fa-bars" aria-label="menu"></i></a>
                     <li><img src="img/favicon.png" className="favicon" alt="favicon" /></li>
                 </ul>
 

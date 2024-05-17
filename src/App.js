@@ -10,9 +10,7 @@ function App(props) {
   
   return (
     <div>
-      {/* <Navbar /> */}
       {/* <GameCardList games={props.games} /> */}
-      {/* <Footer /> */}
       <ProfilePage games={props.games.slice(5, 10)} />
       <Navbar />
       <Filters />

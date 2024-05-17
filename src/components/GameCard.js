@@ -19,6 +19,22 @@ export function GameCard(props) {
                     {stars} 
                     <span className="ratio">({gameData.Metacritic}/5)</span>
                 </div>
+                <div className='game-genrel'>
+                    <span className='genrel-type'>
+                        {gameData.GenreIsIndie && <span className='genreType'>Genre: Indie</span>}
+                        {gameData.GenreIsAction && <span className='genreType'>Genre: Action</span>}
+                        {gameData.GenreIsAdventure && <span className='genreType'>Genre: Adventure</span>}
+                        {gameData.GenreIsCasual && <span className='genreType'>Genre: Casual</span>}
+                        {gameData.GenreIsStrategy && <span className='genreType'>Genre: Strategy</span>}
+                        {gameData.GenreIsRPG && <span className='genreType'>Genre: RPG</span>}
+                        {gameData.GenreIsSimulation && <span className='genreType'>Genre: Simulation</span>}
+                        {gameData.GenreIsEarlyAccess && <span className='genreType'>Genre: Early Access</span>}
+                        {gameData.GenreIsFreeToPlay && <span className='genreType'>Genre: Free To Play</span>}
+                        {gameData.GenreIsSports && <span className='genreType'>Genre: Sports</span>}
+                        {gameData.GenreIsRacing && <span className='genreType'>Genre: Racing</span>}
+                        {gameData.GenreIsMassivelyMultiplayer && <span className='genreType'>Genre: Massively Multiplayer</span>}
+                    </span>
+                </div>
             </div>
         </div>
     );
