@@ -127,6 +127,21 @@ button:hover {
   display: block;
 }
 
+.content-container {
+  display: flex; 
+  justify-content: space-between; 
+  padding-left: 5em;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Filters, .GameCardList {
+  flex: 1;
+}
+
 /* COPY:footer start*/
 footer {
   display: none;

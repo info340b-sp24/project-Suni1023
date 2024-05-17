@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-// import './App.css';
+import './index.css';
 import Navbar from './components/Navbar.js';
 import Footer from './components/Footer.js';
 import { GameCardList } from './components/GameCardList.js';
@@ -11,12 +11,15 @@ function App(props) {
   return (
     <div>
       {/* <GameCardList games={props.games} /> */}
-      <ProfilePage games={props.games.slice(5, 10)} />
+      {/* <ProfilePage games={props.games.slice(5, 10)} /> */}
+      <div>
       <Navbar />
-      <Filters />
-      <GameCardList games={props.games} />
+      <div className="content">
+        <Filters />
+        <GameCardList games={props.games} />
+      </div>
       <Footer />
-      
+    </div>
     </div>
   );
 }

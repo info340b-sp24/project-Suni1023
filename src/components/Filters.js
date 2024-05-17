@@ -1,9 +1,34 @@
 import React, { useState } from 'react';
 
+
 export function Filters(props) {
 
     const [search, setSearch] = useState('');
-    const [check, setChecked] = useState('false');
+    const [filters, setFilters] = useState({
+        indie: false,
+        action: false,
+        adventure: false,
+        casual: false,
+        rpg: false,
+        simulation: false,
+        earlyaccess: false,
+        freetoplay: false,
+        sports: false,
+        racing: false,
+        massivelymultiplayer: false,
+        free: false,
+        lowPrice: false,
+        mediumPrice: false,
+        highPrice: false,
+        oneStar: false,
+        twoStar: false,
+        threeStar: false,
+        fourStar: false,
+        fiveStar: false,
+        windows: false,
+        mac: false,
+        linux: false
+    });
 
     const handleChange = (event) => {
         let newValue = event.target.value
