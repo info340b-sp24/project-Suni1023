@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+// import './App.css';
+import Navbar from './components/Navbar.js';
+import Footer from './components/Footer.js';
+import { GameCardList } from './components/GameCardList.js';
 
 function App() {
+  const FAKE = [
+    {name: "Valorant", rating: 4, logo: "img/Valorant.webp"},
+    {name: "League of Legends", rating: 3, logo: "img/lol-logo.png"},
+    {name: "Destiny 2", rating: 5, logo: "img/Destiny2.webp"}
+  ]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <GameCardList games={FAKE} />
+      <Footer />
     </div>
   );
 }
