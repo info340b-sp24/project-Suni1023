@@ -116,12 +116,13 @@ h1 {
     padding: 10px 20px;
     border: 1px solid #bdbdbd;;
     border-radius: 5px;
-    width: 40%;
+    width: 30px
+    
 }
 
 .search-page {
     display: block;
-    padding: 80px 5% 0;
+    padding: 0;
     font-family: Roboto, sans-serif;
 }
 
@@ -179,6 +180,7 @@ h1 {
 .content-container {
     display: flex; 
     justify-content: space-between; 
+    padding-left: 5em;
 }
 
 /* Filters section */
@@ -293,6 +295,13 @@ p {
         flex-basis: 1000px;   
     }
 
+    .release-year input[type="text"]{
+        padding: 10px 20px;
+        border: 1px solid #bdbdbd;;
+        border-radius: 5px;
+        width: 150px;
+    }
+
 }
 
 /* copy responsive css for the nav bar */
@@ -361,10 +370,10 @@ p {
     }
 
     .release-year input[type="text"]{
-        padding: 10px 70px;
+        padding: 10px 20px;
         border: 1px solid #bdbdbd;;
         border-radius: 5px;
-        width: 40%;
+        width: 150px;
     }
     
 }
