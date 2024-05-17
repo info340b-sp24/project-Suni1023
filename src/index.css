@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-li,a,button {
+li,a,button,span,h1 {
   font-family: Roboto, sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -62,10 +62,6 @@ button:hover {
   background-color: #893168;
 }
 
-h1 {
-  font-family: Roboto, sans-serif;
-}
-
 .profile_links {
   list-style-type: none;
   margin: 0;
@@ -100,20 +96,28 @@ h1 {
 }
 
 .game-info {
-  display: inline;
+  display: flex;
+  flex-direction: column;
   font-size: 1.5rem;
   margin: 1rem;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: left;
+  width: 100%; 
 }
 
 .rating {
-  display: inline-block;
+  display: inline-flex;
   font-size: 20px;
-  margin-top: 1rem;
+  justify-content: flex-end;
 }
 
 .rating .full-star, .half-star {
   color: #ffcc00;
+}
+
+.genreType {
+  font-weight: 400;
+  
 }
 
 .game-image {
@@ -173,10 +177,13 @@ footer {
   footer{
       display: none;
   }
+  .game-genrel {
+    display: none;
+  }
 }
 /* nav responsive end */
 
-@media (min-width: 992px) 
+@media (min-width: 768px) 
 {
   /* .menu {
       display: none;
@@ -201,8 +208,10 @@ footer {
   }
 
   .game-library {
-      display: flex;
-      flex-direction: row;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
   }
 
   .game-container {
