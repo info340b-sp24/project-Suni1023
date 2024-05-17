@@ -10,9 +10,10 @@ function App(props) {
   return (
     <div>
       <Navbar />
+      <Filters />
       <GameCardList games={props.games} />
       <Footer />
-      <Filters />
+      
     </div>
   );
 }
