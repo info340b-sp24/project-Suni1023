@@ -109,7 +109,12 @@ label {
 
 .info-input-checkbox p {
     margin-bottom: 5px;
-    margin: 0
+    margin-left: 0;
+}
+
+.info-input-checkbox {
+    margin-bottom: 1em;
+    margin-left: 0;
 }
 
 /* COPY:footer start*/

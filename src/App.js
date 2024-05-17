@@ -3,6 +3,7 @@
 import Navbar from './components/Navbar.js';
 import Footer from './components/Footer.js';
 import { GameCardList } from './components/GameCardList.js';
+import { Filters } from './components/Filters.js';
 
 function App() {
   const FAKE = [
@@ -16,6 +17,7 @@ function App() {
       <Navbar />
       <GameCardList games={FAKE} />
       <Footer />
+      <Filters />
     </div>
   );
 }
