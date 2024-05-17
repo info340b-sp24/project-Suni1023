@@ -135,7 +135,7 @@ img{
 }
 /* nav responsive end */
 
-@media (max-width: 768px){
+@media (min-width: 992px){
     .start {
         display: none;
     }
@@ -143,6 +143,76 @@ img{
     img {
         max-width: 100%; 
         height: auto;
+    }
+
+    .library-title {
+        display: flex;
+        font-size: 3rem;
+        margin-top: 2rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .game-image {
+        width: 220px;
+        height: 220px;
+        margin-top: 1.5rem;
+    }
+
+    .game-library {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: left;
+    }
+
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+        width: 355px; 
+        height: 350px; 
+        margin: 10px;  
+        border-radius: 10px; 
+    }
+
+    .full-star, .half-star {
+        display: none;
+    }
+
+
+    .flex-container {
+        display: flex;
+    }
+    .paragraph-section {
+        flex-basis: 1000px;   
+    }
+
+    /* COPY: footer continue */
+    footer {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        height: 220px;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        color: #893168;
+        background: #EAEAEA;
+        box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    }
+
+    footer p a {
+        text-decoration: none;
+        color:#4A1942;
+    }
+
+    .material-icons {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
     }
 }
 
@@ -197,3 +267,99 @@ button:hover {
     background-color: #4A1942; 
     color: #EAEAEA; 
 }
+
+/* Sunny's game library css code DON'T MODIFIED */
+.library-title {
+    padding: 1rem;  
+    margin-bottom: 1rem;
+    color:#893168;
+    font-size: 2rem;
+  }
+  
+  
+  .rating {
+      display: inline-block;
+      font-size: 20px;
+      margin-top: 1rem;
+  }
+  
+  .rating .full-star, .half-star {
+      color: #ffcc00;
+  }
+  
+  .game-container {
+      display: flex;
+      flex-direction: row;
+      margin: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+  }
+  
+  .game-image {
+      width: 100px;
+      height: 100%;
+      background-color: #EAEAEA;
+      display: block;
+  }
+  
+  .game-info {
+      display: inline;
+      font-size: 1.5rem;
+      margin: 1rem;
+      justify-content: center;
+  }
+  
+  .game-info a {
+      color: inherit;
+      display: inherit;
+      font-size: inherit;
+      text-decoration: none;
+  }
+  
+  .game-info a:hover {
+      color:#893168;
+      text-decoration: underline;
+      transition: all 0.3s ease 0s;
+  }
+  
+  .detail-game-title {
+      padding: 1rem;  
+      color:#4A1942;
+      font-size: 2rem;
+  }
+  
+  .detail-image {
+      max-width: 100%;
+      height: auto;
+  }
+  
+  .detail-time, .detail-bookmark, .detail-list {
+      margin: 1rem;
+  
+  }
+  
+  .detail-publish-year, .detail-bookmark-title {
+      font-weight: 500;
+  }
+  
+  .detail-model {
+      margin-top: 0.5rem;
+      text-decoration: none;
+      font-weight:300;
+  }
+  
+  .detail-publish-time {
+      margin-left: 0.5rem;
+      font-weight: lighter;
+      text-decoration:underline;
+  }
+  
+  p {
+      margin: 1rem;
+  }
+  
+  /* .menu, .nav-menu{
+      display: none;
+  } */
+
+  /* Sunny's part end */
