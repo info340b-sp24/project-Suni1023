@@ -12,7 +12,7 @@ export function GameCard(props) {
     
     return (
         <div className="game-container">
-            <img src={gameData.logo} alt={`Game logo for ${gameData.QueryName}`} class="game-image" />
+            <img src={gameData.logo} alt={`Game logo for ${gameData.QueryName}`} className="game-image" />
                 <div className="game-info">
                     <a href="game-detail.html" className="game-title">{gameData.QueryName}</a>
                 <div className="rating">
