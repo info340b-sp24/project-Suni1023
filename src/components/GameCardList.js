@@ -7,7 +7,7 @@ export function GameCardList(props) {
     });
     
     return (
-        <div className="game-library">
+        <div class="game-library">
             {gameCards}
         </div>
     );
