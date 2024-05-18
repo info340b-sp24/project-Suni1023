@@ -15,7 +15,7 @@ function App(props) {
       <SearchPage games={props.games} />
       {/* <Homepage /> */}
       {/* {/* <ProfilePage games={props.games} /> */}
-      <AddGame /> */}
+      <AddGame />
       {/* <GameLibrary games={props.games} /> */}
       {/* <GameDetail gameData={props.games[2]} /> */}
     </div>
