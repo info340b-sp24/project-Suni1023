@@ -5,7 +5,6 @@ import { ProfilePage } from './components/ProfilePage.js';
 import { SearchPage } from './components/SearchPage.js';
 import { GameLibrary } from './components/GameLibrary.js';
 import Homepage from './components/Homepage.js';
-import { GameLibrary } from './components/GameLibrary.js';
 import { GameDetail } from './components/GameDetail.js';
 
 function App(props) {
@@ -13,8 +12,8 @@ function App(props) {
   return (
     <div>
       {/* <SearchPage games={props.games} /> */}
-      {/* <Homepage /> */}
-      <ProfilePage games={props.games} />
+      {/* <Homepage games={props.games}/> */}
+      {/* <ProfilePage games={props.games} /> */}
       {/* <Footer /> */}
       {/* <GameLibrary games={props.games} /> */}
       {/* <GameDetail gameData={props.games[2]} /> */}
