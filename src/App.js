@@ -8,19 +8,17 @@ import Homepage from './components/Homepage.js';
 import { GameDetail } from './components/GameDetail.js';
 import { AddGame } from './components/AddGame';
 
+
 function App(props) {
   
   return (
     <div>
-      {/* <SearchPage games={props.games} /> */}
-      {/* <Homepage /> */}
-      {/* <ProfilePage games={props.games} /> */}
-      <AddGame />
-      {/* <Footer /> */}
+      {/* <Homepage games={props.games} /> */}
       {/* <GameLibrary games={props.games} /> */}
       {/* <GameDetail gameData={props.games[2]} /> */}
-      
-      
+      <SearchPage games={props.games} />
+      {/* <AddGame /> */}
+      {/* <ProfilePage games={props.games} /> */}
     </div>
   );
 }

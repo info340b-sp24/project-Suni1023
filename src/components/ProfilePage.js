@@ -10,8 +10,6 @@ export function ProfilePage(props) {
     const handleTabChange = (tab) => {
         setCurrentTab(tab);
     }
-
-    // TODO: looks kind of weird right now but that's because the CSS has not been merged yet
     
     return (
         <div>

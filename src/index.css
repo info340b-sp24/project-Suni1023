@@ -134,11 +134,11 @@ button:hover {
 .search-bar {
   display: flex;
   align-items: center; 
-  margin-bottom: 2em; 
+  margin-bottom: 2em;
 }
 
 .search-bar input[type="text"]{
-  padding: 10px 20px;
+  padding: 10px 70px;
   border: 1px solid #bdbdbd;;
   border-radius: 5px;
   margin-right: 1em;
@@ -222,6 +222,70 @@ button:hover {
     margin-bottom: 5px;
 }
 
+/* THIS IS THE Add Game CSS  */
+.adding-new-game {
+  font-family: Roboto, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.add-game-button {
+  padding: 9px 25px;
+  color:#EAEAEA;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  margin-bottom: 2em;
+}
+
+.adding-new-game {
+  max-width: 800px;
+  display: block;
+  padding: 0 5% 0;
+}
+
+.addGameHeader {
+  padding: 80px 1rem 1rem;
+  margin-bottom: 1rem;
+  color: #893168;
+  font-size: 2rem;
+  text-align: center;
+}
+
+input[type="text"], input[type="number"], textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+  accent-color: #893168;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.info-input {
+  margin-bottom: 15px;
+}
+
+.info-input-checkbox p {
+  margin-bottom: 5px;
+  margin-left: 0;
+}
+
+.info-input-checkbox {
+  margin-bottom: 1em;
+  margin-left: 0;
+}
 
 /* COPY:footer start*/
 footer {
