@@ -112,11 +112,7 @@ button:hover {
   font-size: 2rem;
 }
 
-.rating {
-  display: inline-flex;
-  font-size: 20px;
-  justify-content: flex-end;
-}
+
 
 .rating .full-star, .half-star {
   color: #ffcc00;
@@ -134,20 +130,98 @@ button:hover {
   display: block;
 }
 
-.content-container {
-  display: flex; 
-  justify-content: space-between; 
-  padding-left: 5em;
-}
-
-.content {
+/* THIS IS THE Search Page CSS*/
+.search-bar {
   display: flex;
-  justify-content: space-between;
+  align-items: center; 
+  margin-bottom: 2em; 
 }
 
-.Filters, .GameCardList {
-  flex: 1;
+.search-bar input[type="text"]{
+  padding: 10px 20px;
+  border: 1px solid #bdbdbd;;
+  border-radius: 5px;
+  margin-right: 1em;
 }
+
+.search-bar button{
+  padding: 10px 50px;
+  background-color: #893168;
+  color:#EAEAEA;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.genre {
+  display: flex;
+  flex-direction: column;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+}
+
+.rating-star {
+  display: flex;
+  flex-direction: column;
+  color: #ffcc00;
+}
+
+.platform {
+  display: flex;
+  flex-direction: column;
+}
+
+.release-year {
+  display: flex;
+  flex-direction: column;
+}
+
+.release-year input[type="text"]{
+  padding: 10px 20px;
+  border: 1px solid #bdbdbd;;
+  border-radius: 5px;
+  width: 150px
+}
+
+.search-page {
+  display: block;
+  padding: 0;
+  font-family: Roboto, sans-serif;
+}
+
+.rating .full-star, .half-star {
+  color: #ffcc00;
+}
+
+/* FLEXBOXES for Search Page */
+
+.content-container {
+    display: flex; 
+    justify-content: space-between; 
+    padding-left: 5em;
+}
+
+/* FILTERS SECTION for Search Page */
+.filters {
+    flex: 1; 
+    margin-right: 15px; 
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.category-container {
+    margin-bottom: 1em;
+}
+
+.filters h2 {
+    margin-bottom: 5px;
+}
+
 
 /* COPY:footer start*/
 footer {

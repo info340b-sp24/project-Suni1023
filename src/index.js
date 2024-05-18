@@ -8,7 +8,7 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App games={GAME_DATA.slice(0, 200)} />
+    <App games={GAME_DATA.slice(200, 300)} />
   </React.StrictMode>
 );
 

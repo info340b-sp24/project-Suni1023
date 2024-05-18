@@ -127,13 +127,14 @@ h1 {
 }
 
 
+.rating .full-star, .half-star {
+    color: #ffcc00;
+}
+
 /* Game section */
 
 
 
-.rating .full-star, .half-star {
-    color: #ffcc00;
-}
 
 
 .game-container {
