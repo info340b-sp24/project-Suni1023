@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { GameCardList } from './GameCardList';
 
 
 export function SearchPage(props) {
@@ -45,7 +46,7 @@ export function SearchPage(props) {
         setFilters(newFilters);
 
         
-        let newGames = games.filter((game) => game.PlatformMac && filters.mac);
+        let newGames = games.filter((game) => game.PlatformMac || filters.mac);
         filterGames(newGames);
     }
     
@@ -190,6 +191,7 @@ export function SearchPage(props) {
                 </div>
             </div>
         </div>
+        <GameCardList games={games} />
         <Footer />
     </div>
     );

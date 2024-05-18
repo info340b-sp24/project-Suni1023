@@ -1,5 +1,7 @@
 import React from 'react';
 import { GameCard } from './GameCard.js';
+import Navbar  from './Navbar.js';
+import Footer from './Footer.js';
 
 
 export function GameLibrary(props) {
@@ -9,7 +11,7 @@ export function GameLibrary(props) {
 
     return (
         <div>
-            <Header />
+            <Navbar />
             <div className="game-library">
                 <h1 class="library-title">Game Library</h1>
                 {gameCards}
