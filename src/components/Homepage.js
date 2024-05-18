@@ -17,7 +17,7 @@ const Homepage = () => {
 
     return (
         <div>
-            <Navbar />
+            {/* <Navbar /> */}
             <div className="container">
                 <h1>Having trouble finding new games to play?</h1>
                 <div className="image">
@@ -50,7 +50,7 @@ const Homepage = () => {
                 </div>
             )}
             {saveMessage && <p>{saveMessage}</p >}
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 };

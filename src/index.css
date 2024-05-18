@@ -237,6 +237,25 @@ footer {
   font-size: 10vw;
 }
 
+.detail-game-title {
+  padding: 1rem;  
+  color:#4A1942;
+  font-size: 2rem;
+}
+
+.detail-img {
+  width: 100%;
+  height: auto;
+}
+
+.description {
+  margin: 1rem;
+
+}
+
+.detail-publish-year, .detail-bookmark-title {
+  font-weight: 500;
+}
 
 @media (max-width: 768px) {
 
@@ -372,14 +391,42 @@ footer {
       font-size: 4vw;
   }
 
-  /* .container .background img{
-    display: none;
-  }
+  .detail-container {
+    display: flex;
+    flex-direction: column;
+}
 
-  .gameDetails img{
-    max-width: 100%;
+.detail-content {
+    display: flex;
+    flex-direction: row;  /* Align children side by side */
+}
+
+.detail-description {
+    flex: 3; /* Takes more space */
+    padding: 10px;
+}
+
+.other-details {
+    flex: 1; /* Takes less space */
+    background-color: #f0f0f0; /* Light grey background */
+    padding: 50px;
+    margin-left: 20px; /* Add some space between the description and the details */
+    border-radius: 8px; /* Optional: adds rounded corners */
+}
+
+.detail-list {
+    list-style-type: none; /* Removes bullet points */
+    padding: 0;
+}
+
+.detail-image img {
+    max-width: 100%; /* Ensure the image is responsive */
     height: auto;
-  } */
+}
+
+
+  
+
 }
 
 /* 
