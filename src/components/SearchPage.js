@@ -104,7 +104,6 @@ export function SearchPage(props) {
 
                         <div className="search-bar">
                             <input type="text" id="search" name="search" placeholder="Search" onChange={handleSearch} value={search}/>
-                            <button>Submit</button>
                         </div>
                     
                     <div className="category-container">
