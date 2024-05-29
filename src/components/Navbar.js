@@ -1,38 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
-export default function Navbar() {
+
+function Navbar() {
+
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const handleSignOut = (event) => {
+        console.log("signing out");
+    }
+
     return (
-        <div>
-            <header className="menu">
-                <ul className="menu-container">
-                    <a href="#menu"><i className="fa fa-bars" aria-label="menu"></i></a>
-                    <li><img src="img/favicon.png" className="favicon" alt="favicon" /></li>
-                </ul>
+        <nav>
+            <NavLink to="/" className="title">
+                Game Finder
+            </NavLink>
 
-                <nav className="nav-menu">
-                    <img src="img/favicon.png" alt="favicon" />
-                    <ul>
-                        <li><a href="index.html">Homepage</a></li>
-                        <li><a href="game-library.html">Game Library</a></li>
-                        <li><a href="search-page.html">Search Game</a></li>
-                        <li><a href="add-new-game.html">Add a new game</a></li>
-                        <li><a href="user-profile.html">User Profile</a></li>
-                    </ul>
-                </nav>
-            </header>
-
-        
-            <header className="menu-line">
-                <nav>
-                    <ul className="nav_links">
-                        <li><a href="index.html">Homepage</a></li>
-                        <li><a href="game-library.html">Game Library</a></li>
-                        <li><a href="search-page.html">Search Game</a></li>
-                        <li><a href="add-new-game.html">Add a new game</a></li>
-                    </ul>
-                </nav>
-                <a href="user-profile.html" className="cta"><button>User Profile</button></a>
-            </header>
-        </div>
+            <div className="menu-icon" onClick={() => {
+                setMenuOpen(!menuOpen);
+            }}
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul className={menuOpen ? "open" : ""}>
+                <li>
+                    <NavLink to="/">Homepage</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/GameLibrary">Game Library</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/SearchPage">Search Game</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/AddGame">Add a new game</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/ProfilePage">User Profile</NavLink>
+                </li>
+                
+                {/* <li className="sign-out">
+//               <button className="btn btn-secondary ms-2" onClick={handleSignOut}>Sign Out</button>
+//             </li> */}
+            </ul>
+        </nav>
     );
 }
+export default Navbar;
+

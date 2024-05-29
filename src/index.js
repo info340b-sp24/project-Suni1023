@@ -5,11 +5,17 @@ import './index.css';
 import GAME_DATA from './data/game_data.json';
 import App from './App';
 
+import { BrowserRouter } from 'react-router-dom';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+
+  <BrowserRouter>
     <App games={GAME_DATA.slice(200, 300)} />
-  </React.StrictMode>
+  </BrowserRouter>,
+  // <React.StrictMode>
+  //   <App games={GAME_DATA.slice(200, 300)} />
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

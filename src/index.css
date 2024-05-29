@@ -13,34 +13,80 @@ li,a,button,span {
   text-decoration: none;
 }
 
-header{
+nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
-  background: #EAEAEA;
-  padding: 10px 5%;
+  background-color: #EAEAEA;
+  /* padding: 10px 5%; */
   box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.nav_links{
-  line-height: none;
-  margin: 0;
-  padding: 0;
+nav .title{
+  font-size: 1.5rem;
+  margin: 1rem;
 }
 
-.nav_links li{
+nav ul{
+  display: flex;
+
+}
+
+nav ul li{
+  list-style: none;
   display: inline-block;
-  padding: 0px 20px;
+  /* padding: 0px 20px; */
 }
 
-
-.nav_links li a{
-  transform: all;
+nav ul li a{
+  display: block;
+  text-decoration: none;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  border-radius: 0.5rem;
 }
 
-.nav_links li a:hover{
+nav li a:hover{
   color: #893168;
+}
+
+nav .menu-icon{
+  display: none;
+  position: absolute;
+  top:0.75rem;
+  right: 0.75rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2.25rem;
+  height: 2rem;
+}
+
+nav .menu-icon span{
+  height: 0.4rem;
+  width: 100%;
+  border-radius: 0.2rem;
+  background-color: #050404;
+  cursor: pointer;
+}
+
+.background img{
+  max-width: 100%;
+  height: auto;
+} 
+
+/* div .container-gamedetail{
+
+} */
+
+.container .p{
+  margin-bottom: 20px;
+}
+
+.container .background{
+  margin-bottom: 20px;
 }
 
 button{
@@ -111,8 +157,6 @@ button:hover {
   color:#893168;
   font-size: 2rem;
 }
-
-
 
 .rating .full-star, .half-star {
   color: #ffcc00;
@@ -293,61 +337,49 @@ footer {
 }
 
 /* copy responsive css for the nav bar */
-.menu, .nav-menu {
-  display: none;
-}
-
 .profile-prompt {
   font-size: 10vw;
 }
 
-
 @media (max-width: 768px) {
-
-  .menu {
-      display: block;
+  nav .menu-icon{
+    display: flex;
   }
 
-  .menu-line {
-      display: none;
+  nav{
+    flex-direction: column;
+    align-items: start;
+    /* background-color: #EAEAEA; */
+    
   }
 
-  .menu {
-      max-height: 40px;
-  }
-  
-  .favicon {
-      max-width: 25px;
-  }
-
-  .hamburger-menu {
-      margin-right: 10px; 
-  }
-  
-  .favicon {
-      margin-left: 10px; 
+  nav ul{
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 0.25rem;
   }
 
-  .menu-container {
-      display: flex;
-      align-items: center;
-      list-style-type: none; 
-      padding: 0; 
-  }
-  
-  .menu-container li {
-      margin-right: 20px; 
-  }
-  
-  .menu-container li:last-child {
-      margin-right: 0; 
+  nav ul li{
+    width: 100%;
+    text-align: center;
   }
 
+  nav ul li a{
+    margin: 0.2rem 0.5rem;
+  }
+
+  nav ul.open{
+    display: flex;
+  }
+
+
+  /* save */
   footer{
       display: none;
   }
 
-  .container img{
+  .background {
     display: none;
   }
 
@@ -357,16 +389,7 @@ footer {
   }
 }
 
-@media (min-width: 768px) 
-{
-  /* .menu {
-      display: none;
-  }
-
-  .menu-line {
-      display: block;
-  } */
-
+@media (min-width: 768px) {
   .profile_links li a {
       font-size: 2vw;
   }
@@ -435,15 +458,6 @@ footer {
   .profile-prompt {
       font-size: 4vw;
   }
-
-  /* .container .background img{
-    display: none;
-  }
-
-  .gameDetails img{
-    max-width: 100%;
-    height: auto;
-  } */
 }
 
 /* 
