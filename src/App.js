@@ -12,13 +12,29 @@ import { Routes, Route } from 'react-router-dom'
 import { Navigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import {BrowserRouter} from 'react-router-dom';
+
+import * as Static from './components/StaticPages';
  
 function App(props) {
   
   return (
     
     <div>
+      <Routes>
+        <Route index element={<Static.WelcomePage />} />
+        <Route path="/Homepage" element={<Homepage games={props.games}/>}></Route>
+        <Route path="/GameLibrary" element={<GameLibrary games={props.games}/>}>
+          {/* space for game detail inside game lib --sunny will do */}
+          <Route path=":GameDetail" element={<GameDetail games={props.games[2]} />} />
+        </Route>
+        
+        <Route path="/SearchPage" element={<SearchPage games={props.games}/>}></Route>
+        <Route path="/AddGame" element={<AddGame games={props.games}/>}></Route>
+        <Route path="/ProfilePage" element={<ProfilePage games={props.games}/>}></Route>
+        {/* <Route path="*" element={<Static.ErrorPage />} /> */}
+      </Routes>
 
+      {/* still for testing */}
       {/* <Homepage games={props.games} /> */}
       {/* <GameLibrary games={props.games} /> */}
       {/* <GameDetail gameData={props.games[2]} /> */}
