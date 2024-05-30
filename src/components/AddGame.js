@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { get Database, ref} from 'firebase/database';
 
 
 export function AddGame(props) {
 
     const [nameGame, setNameGame] = useState('');
-    const [filters, setFilters] = useState({
+    const [genres, setGenres] = useState({
         indie: false,
         action: false,
         adventure: false,
@@ -23,8 +24,9 @@ export function AddGame(props) {
         linux: false
     });
 
+
     const [price, setPrice] = useState('');
-    const [description, setDescription] = ('');
+    const [description, setDescription] = useState('');
 
     const handleSearch = (event) => {
         let newValue = event.target.value
@@ -32,9 +34,9 @@ export function AddGame(props) {
     }
 
     const handleBox = (event) => {
-        let newFilters = {...filters};
-        newFilters[event.target.name] = !newFilters[event.target.name];
-        setFilters(newFilters);
+        let newGenres = {...genres};
+        newGenres[event.target.name] = !newGenres[event.target.name];
+        setGenres(newGenres);
     }
 
     const handlePrice = (event) => {
@@ -47,12 +49,38 @@ export function AddGame(props) {
         setDescription(newDescription);
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (!nameGame) {
+            alert('Please fill out the name of the game');
+        } else if (!price) {
+            alert('Please fill out the price of the game');
+        } else if (!description) {
+            alert('Please fill out the description of the game');
+        }
+        const genreList = Object.keys(genres).filter((genre) => genres[genre]);
+        if (genreList.length === 0) {
+            alert('Please pick at least one genre for the game');
+        }
+    }
+
+    const [imageFile, setImageFile] = useState(undefined)
+    const [selectedImage, setSelectedImage] = useState('./img/uploadphoto.png');
+
+    const handleImageChange = (event) => {
+        if (event.target.files.length > 0 && event.target.files[0]) {
+            const imageFile = event.target.files[0]
+            setImageFile(imageFile);
+            setSelectedImage(URL.createObjectURL(imageFile));
+        }
+    };
+
 return (
     <div>
         <Navbar />
         <div className="adding-new-game">
             <h1 className="addGameHeader">Add a New Game</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="info-input">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" onChange={handleSearch} value={nameGame}/>
@@ -88,11 +116,11 @@ return (
 
                 <div className="info-input-checkbox">
                     <p> Platforms:</p>
-                    <input type="checkbox" id="windows" name="windows" value="Windows"/>
+                    <input type="checkbox" id="windows" name="windows" value="Windows" onChange={handleBox}/>
                     <label for="windows"> Windows</label>
-                    <input type="checkbox" id="mac" name="mac" value="Mac"/>
+                    <input type="checkbox" id="mac" name="mac" value="Mac" onChange={handleBox}/>
                     <label for="mac"> Mac</label>
-                    <input type="checkbox" id="linux" name="linux" value="Linux"/>
+                    <input type="checkbox" id="linux" name="linux" value="Linux" onChange={handleBox}/>
                     <label for="linux"> Linux</label>
                 </div>
 
@@ -116,5 +144,5 @@ return (
     </div>
     
 
-);
+    );
 }
