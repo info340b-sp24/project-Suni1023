@@ -12,7 +12,7 @@ function Navbar() {
 
     return (
         <nav>
-            <NavLink to="/" className="title">
+            <NavLink to="/Homepage" className="title">
                 Game Finder
             </NavLink>
 
@@ -26,7 +26,7 @@ function Navbar() {
             </div>
             <ul className={menuOpen ? "open" : ""}>
                 <li>
-                    <NavLink to="/">Homepage</NavLink>
+                    <NavLink to="/Homepage">Homepage</NavLink>
                 </li>
                 <li>
                     <NavLink to="/GameLibrary">Game Library</NavLink>
