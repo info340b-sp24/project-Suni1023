@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { get Database, ref} from 'firebase/database';
+import { getDatabase, ref} from 'firebase/database';
 
 
 export function AddGame(props) {
