@@ -1,10 +1,13 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { useParams } from 'react-router-dom';
 
 export function GameDetail(props) {
-    const gameData = props.gameData;
-    if (!gameData.DetailedDescrip) return <p>No game data available.</p>;
+    const { gameId } = useParams();
+    const gameData = props.games.find(game => game.QueryName === gameId);
+
+    if (!gameData) return <p>No game data available.</p>;
 
     return (
         <div>
