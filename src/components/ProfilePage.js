@@ -16,36 +16,46 @@ export function ProfilePage(props) {
     const [viewingHistory, setViewingHistory] = useState([]);
 
     useEffect(() => {
-        const db = getDatabase();
-        const bookmarkRef = ref(db, "users/" + props.currentUser.userId + "/bookmarks");
-        const historyRef = ref(db, "users/" + props.currentUser.userId + "/viewingHistory");
-        
-        const bookmarkUnregisterFunction = onValue(bookmarkRef, (snapshot) => {
-            const bookmarks = snapshot.val();
-            const bookmarkArray = Object.keys(bookmarks).map((key) => {
-                const singleBookmarkCopy = {...bookmarks[key]};
-                singleBookmarkCopy.key = key;
-                return singleBookmarkCopy;
+        if (props.currentUser !== null) {
+            const db = getDatabase();
+            const bookmarkRef = ref(db, "users/" + props.currentUser.userId + "/bookmarks");
+            const historyRef = ref(db, "users/" + props.currentUser.userId + "/viewingHistory");
+            
+            const bookmarkUnregisterFunction = onValue(bookmarkRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    const bookmarks = snapshot.val();
+                    const bookmarkArray = Object.keys(bookmarks).map((key) => {
+                        const singleBookmarkCopy = {...bookmarks[key]};
+                        singleBookmarkCopy.key = key;
+                        return singleBookmarkCopy;
+                    });
+                    setBookmarkedGames(bookmarkArray);
+                } else {
+                    setBookmarkedGames([]);
+                }
             });
-            setBookmarkedGames(bookmarkArray);
-        });
 
-        const historyUnregisterFunction = onValue(historyRef, (snapshot) => {
-            const viewingHistory = snapshot.val();
-            const histArray = Object.keys(viewingHistory).map((key) => {
-                const singleHistCopy = {...viewingHistory[key]};
-                singleHistCopy.key = key;
-                return singleHistCopy;
+            const historyUnregisterFunction = onValue(historyRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    const viewingHistory = snapshot.val();
+                    const histArray = Object.keys(viewingHistory).map((key) => {
+                        const singleHistCopy = {...viewingHistory[key]};
+                        singleHistCopy.key = key;
+                        return singleHistCopy;
+                    });
+                    setViewingHistory(histArray);
+                } else {
+                    setViewingHistory([]);
+                }
             });
-            setViewingHistory(histArray);
-        });
 
-        function cleanup() {
-            bookmarkUnregisterFunction();
-            historyUnregisterFunction();
+            function cleanup() {
+                bookmarkUnregisterFunction();
+                historyUnregisterFunction();
+            }
+
+            return cleanup;
         }
-
-        return cleanup;
     })
 
     const handleTabChange = (tab) => {
