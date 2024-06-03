@@ -13,9 +13,7 @@ export function GameDetail(props) {
         <div>
             <Navbar />
             <div className="detail-container">
-                <div className="detail-image">
-                    <img className='detail-img' src={gameData.logo} alt={`Game logo for ${gameData.QueryName}`} />
-                </div>
+                <img className='detail-img' src={gameData.logo} alt={`Game logo for ${gameData.QueryName}`} />
                 <div className="detail-content">
                     <div className="detail-description">
                         <h1 className="detail-game-title">{gameData.QueryName}</h1>

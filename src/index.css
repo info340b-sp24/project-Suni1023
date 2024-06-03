@@ -133,6 +133,18 @@ button:hover {
   padding: 3% 0% 0% 11%;
 }
 
+.Botton-container {
+  padding-bottom: 15px;
+}
+
+.container-gamedetail {
+  margin-left: 55.5px;
+}
+
+.saveButton, .resetButton {
+  margin: 10px;
+}
+
 .game-container {
   display: flex;
   flex-direction: row;
@@ -151,6 +163,10 @@ button:hover {
   width: 100%; 
 }
 
+.game-genrel {
+  display: none;
+}
+
 .library-title {
   padding: 1rem;  
   margin-bottom: 1rem;
@@ -160,6 +176,10 @@ button:hover {
 
 .rating .full-star, .half-star {
   color: #ffcc00;
+}
+
+.rating {
+  display: flex;
 }
 
 .genreType {
@@ -172,6 +192,15 @@ button:hover {
   height: auto;
   background-color: #EAEAEA;
   display: block;
+}
+
+.detail-img{
+  height: auto;  
+  width: 100%;
+}
+
+.detail-content {
+  margin: 10px;
 }
 
 /* THIS IS THE Search Page CSS*/
@@ -331,6 +360,10 @@ label {
   margin-left: 0;
 }
 
+.info-input input {
+  display: block;
+}
+
 /* COPY:footer start*/
 footer {
   display: none;
@@ -383,10 +416,7 @@ footer {
     display: none;
   }
 
-  .gameDetails img{
-      max-width: 100%;  
-      height: auto;  
-  }
+  
 }
 
 @media (min-width: 768px) {
@@ -405,8 +435,11 @@ footer {
     align-items: center;
     text-align: center;
     width: 100%;
-}
+  }
 
+  .container-gamedetail {
+    margin-left: 127px;
+  }
   .game-image {
       width: 400px;
       height: 220px;
@@ -430,6 +463,33 @@ footer {
       margin: 10px;  
       border-radius: 10px; 
   }
+
+  .game-genrel {
+    display: block;
+    margin-left: 15px;
+    margin-bottom: 10px;
+  }
+
+  .detail-content {
+    display: flex;
+  }
+
+  .detail-description {
+    padding-right: 10px;
+  }
+
+  .other-details {
+    flex-shrink: 0;
+    width: 200px;
+    margin-right: -10px;
+    margin-top: -10px;
+    background-color: #bdbdbd;
+    padding-top: 20px;
+  }
+
+  /* .description {
+    flex-basis: 1000px;
+  } */
   
   footer {
       position: relative;
