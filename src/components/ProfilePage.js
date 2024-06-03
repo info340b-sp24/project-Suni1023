@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { GameCardList } from './GameCardList';
-
-// MAJOR TODO: make SigninPage.js and have it do auth
-// figure out how auth state works and use it accordingly
+import { getAuth, signOut } from 'firebase/auth';
 
 // TODO: fix broken CSS, clean up the page generally
-// TODO: firebase auth setup
 // TODO: grab saved games/history from firebase and render it here
 
 export function ProfilePage(props) {
@@ -16,6 +14,15 @@ export function ProfilePage(props) {
 
     const handleTabChange = (tab) => {
         setCurrentTab(tab);
+    }
+
+    if (props.currentUser === null) { // if not signed in
+        return <Navigate to="/signin" />;
+    }
+
+    const signOutCallback = () => {
+        const auth = getAuth();
+        signOut(auth).catch(err => console.log(err));
     }
     
     return (
@@ -28,7 +35,7 @@ export function ProfilePage(props) {
                             <img src="img/default_pfp.png" alt="user profile picture" height="100px" width="100px" />
                         </div>
                         <div className="col-4 col-lg-2 py-4 px-0">
-                            <h1>John Doe</h1>
+                            <h1>{props.currentUser.userName}</h1>
                         </div>
                     </div>
                 </div>
@@ -38,6 +45,7 @@ export function ProfilePage(props) {
                         <li><a href="#" onClick={() => handleTabChange('publish')}>Publish</a></li>
                         <li><a href="#" onClick={() => handleTabChange('bookmarks')}>Bookmarks</a></li>
                         <li><a href="#" onClick={() => handleTabChange('history')}>History</a></li>
+                        <li><a href="#" onClick={signOutCallback}>Sign out</a></li>
                     </ul>
                 </nav>
             </section>
