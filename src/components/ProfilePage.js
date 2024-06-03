@@ -4,10 +4,9 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import { GameCardList } from './GameCardList';
 import { getAuth, signOut } from 'firebase/auth';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getDatabase, ref, onValue } from 'firebase/database';
 
 // TODO: fix broken CSS, clean up the page generally
-// TODO: grab saved games/history from firebase and render it here
 
 export function ProfilePage(props) {
      // depending on which link is clicked, change state and conditionally render body
@@ -15,46 +14,43 @@ export function ProfilePage(props) {
     const [currentTab, setCurrentTab] = useState('publish');
     const [bookmarkedGames, setBookmarkedGames] = useState([]);
     const [viewingHistory, setViewingHistory] = useState([]);
-    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        const db = getDatabase();
+        const bookmarkRef = ref(db, "users/" + props.currentUser.userId + "/bookmarks");
+        const historyRef = ref(db, "users/" + props.currentUser.userId + "/viewingHistory");
+        
+        const bookmarkUnregisterFunction = onValue(bookmarkRef, (snapshot) => {
+            const bookmarks = snapshot.val();
+            const bookmarkArray = Object.keys(bookmarks).map((key) => {
+                const singleBookmarkCopy = {...bookmarks[key]};
+                singleBookmarkCopy.key = key;
+                return singleBookmarkCopy;
+            });
+            setBookmarkedGames(bookmarkArray);
+        });
+
+        const historyUnregisterFunction = onValue(historyRef, (snapshot) => {
+            const viewingHistory = snapshot.val();
+            const histArray = Object.keys(viewingHistory).map((key) => {
+                const singleHistCopy = {...viewingHistory[key]};
+                singleHistCopy.key = key;
+                return singleHistCopy;
+            });
+            setViewingHistory(histArray);
+        });
+
+        function cleanup() {
+            bookmarkUnregisterFunction();
+            historyUnregisterFunction();
+        }
+
+        return cleanup;
+    })
 
     const handleTabChange = (tab) => {
         setCurrentTab(tab);
-        if (tab === 'bookmarks') {
-            fetchBookmarkedGames();
-        } else if (tab === 'history') {
-            fetchViewingHistory();
-        }
     }
-
-    const fetchBookmarkedGames = async () => {
-        setLoading(true);
-        try {
-            const db = getFirestore();
-            const bookmarksCollection = collection(db, "users", props.currentUser.uid, "bookmarks");
-            const bookmarksSnapshot = await getDocs(bookmarksCollection);
-            const bookmarksList = bookmarksSnapshot.docs.map(doc => doc.data());
-            console.log('Fetched bookmarked games:', bookmarksList);
-            setBookmarkedGames(bookmarksList);
-        } catch (error) {
-            console.error('Error fetching bookmarked games:', error);
-        }
-        setLoading(false);
-    };
-
-    const fetchViewingHistory = async () => {
-        setLoading(true);
-        try {
-            const db = getFirestore();
-            const historyCollection = collection(db, "users", props.currentUser.uid, "viewingHistory");
-            const historySnapshot = await getDocs(historyCollection);
-            const historyList = historySnapshot.docs.map(doc => doc.data());
-            console.log('Fetched viewing history:', historyList);
-            setViewingHistory(historyList);
-        } catch (error) {
-            console.error('Error fetching viewing history:', error);
-        }
-        setLoading(false);
-    };
 
 
     if (props.currentUser === null) { // if not signed in
@@ -99,15 +95,13 @@ export function ProfilePage(props) {
                 </main>
             }
 
-            {currentTab === 'bookmarks' && !loading &&
+            {currentTab === 'bookmarks' &&
                 <GameCardList games={bookmarkedGames} currentUser={props.currentUser} />
             }
 
-            {currentTab === 'history' && !loading &&
+            {currentTab === 'history' &&
                 <GameCardList games={viewingHistory} currentUser={props.currentUser} />
             }
-
-            {loading && <p>Loading...</p>}
 
             <Footer />
         </div>
