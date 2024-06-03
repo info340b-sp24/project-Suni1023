@@ -212,6 +212,14 @@ button:hover {
 }
 
 /* THIS IS THE Search Page CSS*/
+.search-game-heading {
+  padding: 80px 1rem 1rem;
+  margin-bottom: 1rem;
+  color: #893168;
+  font-size: 3rem;
+  text-align: center;
+}
+
 .search-bar {
   display: flex;
   align-items: center; 
@@ -334,7 +342,7 @@ button:hover {
   padding: 80px 1rem 1rem;
   margin-bottom: 1rem;
   color: #893168;
-  font-size: 2rem;
+  font-size: 3rem;
   text-align: center;
 }
 

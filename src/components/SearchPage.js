@@ -144,7 +144,7 @@ export function SearchPage(props) {
         <div>
             <Navbar />
             <div className="search-page">
-                <h1>Search Game</h1>
+                <h1 className='search-game-heading'>Search Game</h1>
                 <div className="content-container">
                     <div className="filters"> 
 
