@@ -25,11 +25,19 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+// Remove duplicates from game data
+GAME_DATA = GAME_DATA.slice(200, 300);
+// The below code was borrowed/modified from 
+// https://stackoverflow.com/questions/2218999/how-to-remove-all-duplicates-from-an-array-of-objects
+GAME_DATA = GAME_DATA.filter((game1, i, games_arr) => {
+  return games_arr.findIndex((game2) => (game2.QueryName === game1.QueryName)) === i
+});
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
   <BrowserRouter>
-    <App games={GAME_DATA.slice(200, 300)} />
+    <App games={GAME_DATA} />
   </BrowserRouter>,
   // <React.StrictMode>
   //   <App games={GAME_DATA.slice(200, 300)} />

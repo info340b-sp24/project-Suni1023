@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import { GameCardList } from './GameCardList';
 
+// TODO: fix the CSS a bit
 
 export function SearchPage(props) {
     const [search, setSearch] = useState('');
@@ -32,14 +33,14 @@ export function SearchPage(props) {
         linux: false
     });
     const [releaseYear, setReleaseYear] = useState('');
-    const [games, filterGames] = useState(props.games);
+    // const [games, filterGames] = useState(props.games);
 
     const handleSearch = (event) => {
         let newValue = event.target.value;
-        let newGames = props.games;
-        newGames = newGames.filter((game) => game.QueryName.startsWith(newValue));
+        // let newGames = props.games;
+        // newGames = newGames.filter((game) => game.QueryName.startsWith(newValue));
         setSearch(newValue);
-        filterGames(newGames);
+        // filterGames(newGames);
     }
     
     const handleBox = (event) => {
@@ -48,58 +49,103 @@ export function SearchPage(props) {
         
         setFilters(newFilters);
 
-        let newGames = props.games;
-        const platforms = ["Windows", "Mac", "Linux"];
-        platforms.map((platform) => {
-            if (filters[platform.toLowerCase()]) {
-                newGames = newGames.filter((game) => game["Platform" + platform]);
-            }
-        });
+        // let newGames = props.games;
+        // const platforms = ["Windows", "Mac", "Linux"];
+        // platforms.map((platform) => {
+        //     if (filters[platform.toLowerCase()]) {
+        //         newGames = newGames.filter((game) => game["Platform" + platform]);
+        //     }
+        // });
         
-        let genres = ["Indie", "Action", "Adventure", "Casual", "RPG", "Simulation",
-            "EarlyAccess", "FreeToPlay", "Sports", "Racing", "MassivelyMultiplayer"]
-        genres.map((genre) => {
-            if (filters[genre.toLowerCase()]) {
-                newGames = newGames.filter((game) => game["GenreIs" + genre]);
-            }
-        });
+        // let genres = ["Indie", "Action", "Adventure", "Casual", "RPG", "Simulation",
+        //     "EarlyAccess", "FreeToPlay", "Sports", "Racing", "MassivelyMultiplayer"]
+        // genres.map((genre) => {
+        //     if (filters[genre.toLowerCase()]) {
+        //         newGames = newGames.filter((game) => game["GenreIs" + genre]);
+        //     }
+        // });
 
-        let prices = ["free", "lowPrice", "mediumPrice", "highPrice"];
-        prices.map((price) => {
-            if (filters[price]) {
-                newGames = newGames.filter((game) => {
-                    if (game.PriceFinal === 0.0 && price === "free") {
-                        return game;
-                    } else if (game.PriceFinal <= 9.99 && price === "lowPrice") {
-                        return game;
-                    } else if (game.priceFinal <= 19.99 && price === "mediumPrice") {
-                        return game;
-                    } else if (price === "highPrice") {
-                        return game;
-                    }
-                })
-            }
-        });
+        // let prices = ["free", "lowPrice", "mediumPrice", "highPrice"];
+        // prices.map((price) => {
+        //     if (filters[price]) {
+        //         newGames = newGames.filter((game) => {
+        //             if (game.PriceFinal === 0.0 && price === "free") {
+        //                 return game;
+        //             } else if (game.PriceFinal <= 9.99 && price === "lowPrice") {
+        //                 return game;
+        //             } else if (game.priceFinal <= 19.99 && price === "mediumPrice") {
+        //                 return game;
+        //             } else if (price === "highPrice") {
+        //                 return game;
+        //             }
+        //         })
+        //     }
+        // });
 
-        filterGames(newGames);
+        // filterGames(newGames);
     }
     
     const handleYear = (event) => {
         let newYear = event.target.value;
-        let newGames = props.games;
+        // let newGames = props.games;
         setReleaseYear(newYear);
-        if (newYear.toString().length === 4) {
-            newGames = newGames.filter((game) => game.ReleaseDate.toString().startsWith(newYear));
-            filterGames(newGames);
-        }   
+        // if (newYear.toString().length === 4) {
+        //     newGames = newGames.filter((game) => game.ReleaseDate.toString().startsWith(newYear));
+        //     filterGames(newGames);
+        // }
+    }
+
+    let newGames = props.games;
+    // First, filter by the search keyword
+    newGames = newGames.filter((game) => game.QueryName.startsWith(search));
+
+    // Then, go through all checkbox filters (platform, genre, price)
+    const platforms = ["Windows", "Mac", "Linux"];
+    platforms.map((platform) => {
+        if (filters[platform.toLowerCase()]) {
+            newGames = newGames.filter((game) => game["Platform" + platform]);
+        }
+    });
+    
+    let genres = ["Indie", "Action", "Adventure", "Casual", "RPG", "Simulation",
+        "EarlyAccess", "FreeToPlay", "Sports", "Racing", "MassivelyMultiplayer"]
+    genres.map((genre) => {
+        if (filters[genre.toLowerCase()]) {
+            newGames = newGames.filter((game) => game["GenreIs" + genre]);
+        }
+    });
+
+    let prices = ["free", "lowPrice", "mediumPrice", "highPrice"];
+    prices.map((price) => {
+        if (filters[price]) {
+            newGames = newGames.filter((game) => {
+                if (game.PriceFinal === 0.0 && price === "free") {
+                    return game;
+                } 
+                if (game.PriceFinal <= 9.99 && price === "lowPrice") {
+                    return game;
+                }
+                if (game.priceFinal <= 19.99 && price === "mediumPrice") {
+                    return game;
+                }
+                if (game.PriceFinal > 19.99 && price === "highPrice") {
+                    return game;
+                }
+            })
+        }
+    });
+
+    // Finally, filter by year
+    if (releaseYear.toString().length === 4) {
+        newGames = newGames.filter((game) => game.ReleaseDate.toString().startsWith(releaseYear));
     }
 
     return (
         <div>
             <Navbar />
-            <div class="search-page">
+            <div className="search-page">
                 <h1>Search Game</h1>
-                <div class="content-container">
+                <div className="content-container">
                     <div className="filters"> 
 
                         <div className="search-bar">
@@ -230,7 +276,7 @@ export function SearchPage(props) {
                         </div>
                     </div>
                 </div>
-                <GameCardList games={games} />
+                <GameCardList games={newGames} />
             </div>
         </div>
         <Footer />

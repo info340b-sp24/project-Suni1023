@@ -3,6 +3,13 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import { GameCardList } from './GameCardList';
 
+// MAJOR TODO: make SigninPage.js and have it do auth
+// figure out how auth state works and use it accordingly
+
+// TODO: fix broken CSS, clean up the page generally
+// TODO: firebase auth setup
+// TODO: grab saved games/history from firebase and render it here
+
 export function ProfilePage(props) {
     // depending on which link is clicked, change state and conditionally render body
     const [currentTab, setCurrentTab] = useState('publish');
@@ -28,7 +35,7 @@ export function ProfilePage(props) {
 
                 <nav className="profile_link_nav">
                     <ul className="profile_links">
-                        <li><a href="user-profile.html" onClick={() => handleTabChange('publish')}>Publish</a></li>
+                        <li><a href="#" onClick={() => handleTabChange('publish')}>Publish</a></li>
                         <li><a href="#" onClick={() => handleTabChange('bookmarks')}>Bookmarks</a></li>
                         <li><a href="#" onClick={() => handleTabChange('history')}>History</a></li>
                     </ul>

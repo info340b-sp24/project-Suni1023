@@ -1,5 +1,7 @@
 // import logo from './logo.svg';
 import './index.css';
+// import React from 'react';
+
 import { GameCardList } from './components/GameCardList.js';
 import { ProfilePage } from './components/ProfilePage.js';
 import { SearchPage } from './components/SearchPage.js';
@@ -23,10 +25,8 @@ function App(props) {
       <Routes>
         <Route index element={<Static.WelcomePage />} />
         <Route path="/Homepage" element={<Homepage games={props.games}/>}></Route>
-        <Route path="/GameLibrary" element={<GameLibrary games={props.games}/>}>
-          {/* space for game detail inside game lib --sunny will do */}
-          <Route path=":GameDetail" element={<GameDetail games={props.games[2]} />} />
-        </Route>
+        <Route path="/GameLibrary" element={<GameLibrary games={props.games}/>} />
+        <Route path="/GameDetail/:gameId" element={<GameDetail games={props.games} />} />
         
         <Route path="/SearchPage" element={<SearchPage games={props.games}/>}></Route>
         <Route path="/AddGame" element={<AddGame games={props.games}/>}></Route>
