@@ -3,11 +3,11 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getDatabase, ref as dbRef, set as firebaseSet, push as firebasePush} from 'firebase/database'; 
-
+import { useSnackbar } from 'notistack';
 
 
 export function AddGame(props) {
-
+    const { enqueueSnackbar } = useSnackbar();
     const [nameGame, setNameGame] = useState('');
     const [genres, setGenres] = useState({
         indie: false,
@@ -83,29 +83,33 @@ export function AddGame(props) {
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (!nameGame) {
-            alert('Please fill out the name of the game');
+            enqueueSnackbar("Please fill out the name of the game.", { variant: 'error' });
+            return;
         } else if (!year) {
-            alert('Please fill out the release year of the game');
+            enqueueSnackbar("Please fill out the release year of the game.", { variant: 'error' });
+            return;
         } else if (!price) {
-            alert('Please fill out the price of the game');
+            enqueueSnackbar("Please fill out the price of the game.", { variant: 'error' });
+            return;
         } else if (!description) {
-            alert('Please fill out the description of the game');
+            enqueueSnackbar("Please fill out the description of the game.", { variant: 'error' });
+            return;
         }
         const genreList = Object.keys(genres).filter((genre) => genres[genre]);
         if (genreList.length === 0) {
-            alert('Please pick at least one genre for the game');
+            enqueueSnackbar("Please pick at least one genre for the game.", { variant: 'error' });
+            return;
         }
         const platformList = Object.keys(platforms).filter((platform) => platforms[platform]);
         if (platformList.length === 0) {
-            alert('Please pick at least one platform for the game');
+            enqueueSnackbar('Please pick at least one platform for the game.', { variant: 'error' });
+            return;
         }
         if (imageFile === undefined) {
-            alert('Please upload an image');
+            enqueueSnackbar('Please upload an image.', { variant: 'error' });
+            return;
         }
-        const logoUrl = await uploadFile(imageFile, nameGame)
-
-
-    
+        const logoUrl = await uploadFile(imageFile, nameGame)    
 
         const newGameObj = {
             "QueryName": nameGame,
@@ -131,7 +135,7 @@ export function AddGame(props) {
         const db = getDatabase();
         const allGamesRef = dbRef(db, "allGames");
         firebasePush(allGamesRef, newGameObj);
-        alert('Game added successfully!');
+        enqueueSnackbar('Game added successfully!', { variant: 'success' });
     }
 
 
