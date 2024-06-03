@@ -1,20 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { GameCardList } from './GameCardList';
 import { getAuth, signOut } from 'firebase/auth';
+import { getDatabase, ref, onValue } from 'firebase/database';
 
 // TODO: fix broken CSS, clean up the page generally
-// TODO: grab saved games/history from firebase and render it here
 
 export function ProfilePage(props) {
-    // depending on which link is clicked, change state and conditionally render body
+     // depending on which link is clicked, change state and conditionally render body
+
     const [currentTab, setCurrentTab] = useState('publish');
+    const [bookmarkedGames, setBookmarkedGames] = useState([]);
+    const [viewingHistory, setViewingHistory] = useState([]);
+
+    useEffect(() => {
+        const db = getDatabase();
+        const bookmarkRef = ref(db, "users/" + props.currentUser.userId + "/bookmarks");
+        const historyRef = ref(db, "users/" + props.currentUser.userId + "/viewingHistory");
+        
+        const bookmarkUnregisterFunction = onValue(bookmarkRef, (snapshot) => {
+            const bookmarks = snapshot.val();
+            const bookmarkArray = Object.keys(bookmarks).map((key) => {
+                const singleBookmarkCopy = {...bookmarks[key]};
+                singleBookmarkCopy.key = key;
+                return singleBookmarkCopy;
+            });
+            setBookmarkedGames(bookmarkArray);
+        });
+
+        const historyUnregisterFunction = onValue(historyRef, (snapshot) => {
+            const viewingHistory = snapshot.val();
+            const histArray = Object.keys(viewingHistory).map((key) => {
+                const singleHistCopy = {...viewingHistory[key]};
+                singleHistCopy.key = key;
+                return singleHistCopy;
+            });
+            setViewingHistory(histArray);
+        });
+
+        function cleanup() {
+            bookmarkUnregisterFunction();
+            historyUnregisterFunction();
+        }
+
+        return cleanup;
+    })
 
     const handleTabChange = (tab) => {
         setCurrentTab(tab);
     }
+
 
     if (props.currentUser === null) { // if not signed in
         return <Navigate to="/signin" />;
@@ -24,7 +61,7 @@ export function ProfilePage(props) {
         const auth = getAuth();
         signOut(auth).catch(err => console.log(err));
     }
-    
+
     return (
         <div>
             <Navbar />
@@ -59,12 +96,13 @@ export function ProfilePage(props) {
             }
 
             {currentTab === 'bookmarks' &&
-                <GameCardList games={props.games} />
+                <GameCardList games={bookmarkedGames} currentUser={props.currentUser} />
             }
 
             {currentTab === 'history' &&
-                <GameCardList games={props.games} />
+                <GameCardList games={viewingHistory} currentUser={props.currentUser} />
             }
+
             <Footer />
         </div>
     );

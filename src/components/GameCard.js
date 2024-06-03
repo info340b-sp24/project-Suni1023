@@ -1,8 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getDatabase, ref, set } from "firebase/database";
 
 export function GameCard(props) {
     const gameData = props.gameData;
+    const currentUser = props.currentUser;
+
+    const handleBookmark = () => {
+        if (!currentUser) {
+            alert("Please sign in to bookmark games.");
+            return;
+        }
+
+        const db = getDatabase();
+        const bookmarkRef = ref(db, 'users/' + currentUser.uid + '/bookmarks/' + gameData.QueryName);
+        set(bookmarkRef, gameData)
+            .then(() => {
+                alert("Game bookmarked successfully!");
+            })
+            .catch((error) => {
+                alert("Error bookmarking game: " + error);
+            });
+    };
 
     let stars = [];
     for (var i = 0; i < gameData.Metacritic; i++) {
@@ -35,6 +54,7 @@ export function GameCard(props) {
                     {gameData.GenreIsMassivelyMultiplayer && <span className='genreType'><strong>Genre</strong>: Massively Multiplayer </span>}
                 </span>
             </div>
+            <button className='bookmark-button' onClick={handleBookmark}>Bookmark</button>
         </div>
     );
 }

@@ -163,6 +163,14 @@ button:hover {
   width: 100%; 
 }
 
+.bookmark-button {
+  height: 40px;
+  width: 100px;
+  padding: 8px;
+  font-size: smaller;
+  margin: 10px;
+}
+
 .game-genrel {
   display: none;
 }
@@ -454,6 +462,7 @@ footer {
   }
 
   .game-container {
+      position: relative;
       flex-direction: row;
       align-items: center;
       flex-wrap: wrap;
@@ -466,8 +475,15 @@ footer {
 
   .game-genrel {
     display: block;
+    /* margin-top: -20px; */
     margin-left: 15px;
     margin-bottom: 10px;
+  }
+
+  .bookmark-button {
+    position: absolute;
+    top: 250px; /* Adjust as needed */
+    right: 10px; 
   }
 
   .detail-content {

@@ -52,10 +52,10 @@ function App(props) {
         <Route index element={<Static.WelcomePage />} />
         <Route path="/signin" element={<SignInPage currentUser={currentUser} />} />
         <Route path="/Homepage" element={<Homepage currentUser={currentUser} games={props.games}/>}></Route>
-        <Route path="/GameLibrary" element={<GameLibrary games={props.games}/>} />
+        <Route path="/GameLibrary" element={<GameLibrary currentUser={currentUser} games={props.games}/>} />
         <Route path="/GameDetail/:gameId" element={<GameDetail currentUser={currentUser} games={props.games} />} />
         
-        <Route path="/SearchPage" element={<SearchPage games={props.games}/>}></Route>
+        <Route path="/SearchPage" element={<SearchPage currentUser={currentUser} games={props.games}/>}></Route>
         <Route path="/AddGame" element={<AddGame currentUser={currentUser} games={props.games}/>}></Route>
         <Route path="/ProfilePage" element={<ProfilePage currentUser={currentUser} games={props.games}/>}></Route>
         {/* <Route path="*" element={<Static.ErrorPage />} /> */}

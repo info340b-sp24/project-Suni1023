@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { useParams } from 'react-router-dom';
+import { getDatabase, ref, set } from 'firebase/database';
+
 
 export function GameDetail(props) {
     const { gameId } = useParams();
-    const gameData = props.games.find(game => game.QueryName === gameId);
+    const games = props.games || [];
+    const currentUser = props.currentUser;
+    const gameData = games.find(game => game.QueryName === gameId);
+    
+    useEffect(() => {
+        if (currentUser && gameData) {
+            const db = getDatabase();
+            const viewingRef = ref(db, 'users/' + currentUser.uid + '/viewingHistory/' + gameData.QueryName);
+            set(viewingRef, {...gameData, viewedAt: new Date()})
+                .then(() => {
+                    console.log("Saved to viewing history successfully!");
+                })
+                .catch((error) => {
+                    console.log("Error saving game: " + error);
+                });
+        }
+    }, [currentUser, gameData]);
 
     if (!gameData) return <p>No game data available.</p>;
 
