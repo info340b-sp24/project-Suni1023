@@ -331,6 +331,10 @@ label {
   margin-left: 0;
 }
 
+.info-input input {
+  display: block;
+}
+
 /* COPY:footer start*/
 footer {
   display: none;

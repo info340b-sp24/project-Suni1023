@@ -225,7 +225,7 @@ export function SearchPage(props) {
                         <div className="release-year">
                             <h2> Release Year</h2>
                             <label>
-                                <input type="text" id="year" name="year" onChange={handleYear} value={releaseYear} />
+                                <input type="number" id="year" name="year" onChange={handleYear} value={releaseYear} />
                             </label>
                         </div>
                     </div>

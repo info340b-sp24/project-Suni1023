@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { get Database, ref} from 'firebase/database';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { getDatabase, ref as dbRef, set as firebaseSet, push as firebasePush} from 'firebase/database'; 
+
 
 
 export function AddGame(props) {
@@ -19,14 +21,19 @@ export function AddGame(props) {
         sports: false,
         racing: false,
         massivelymultiplayer: false,
+    });
+
+    const [platforms, setPlatforms] = useState({
         windows: false,
         mac: false,
         linux: false
     });
 
 
-    const [price, setPrice] = useState('');
+    const [price, setPrice] = useState(0);
     const [description, setDescription] = useState('');
+    const [year, setYear] = useState(2000);
+    const [imageFile, setImageFile] = useState(undefined);
 
     const handleSearch = (event) => {
         let newValue = event.target.value
@@ -39,8 +46,19 @@ export function AddGame(props) {
         setGenres(newGenres);
     }
 
+    const handlePlatforms = (event) => {
+        let newPlatforms = {...platforms};
+        newPlatforms[event.target.name] = !newPlatforms[event.target.name];
+        setPlatforms(newPlatforms);
+    }
+
+    const handleYear = (event) => {
+        let newYear = parseInt(event.target.value);
+        setYear(newYear);
+    }
+
     const handlePrice = (event) => {
-        let newPrice = event.target.value;
+        let newPrice = parseInt(event.target.value);
         setPrice(newPrice);
     }
 
@@ -49,10 +67,25 @@ export function AddGame(props) {
         setDescription(newDescription);
     }
 
-    const handleSubmit = (event) => {
+    async function uploadFile(myFile, gameName) {
+        const storage = getStorage();
+        const fileRef = storageRef(storage, "uploadedLogos/" + gameName);
+      
+        try { 
+          await uploadBytes(fileRef, myFile) 
+          const url = await getDownloadURL(fileRef); 
+          return url
+        } catch (err) {
+          console.log(err); 
+        }
+    }
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
         if (!nameGame) {
             alert('Please fill out the name of the game');
+        } else if (!year) {
+            alert('Please fill out the release year of the game');
         } else if (!price) {
             alert('Please fill out the price of the game');
         } else if (!description) {
@@ -62,18 +95,54 @@ export function AddGame(props) {
         if (genreList.length === 0) {
             alert('Please pick at least one genre for the game');
         }
+        const platformList = Object.keys(platforms).filter((platform) => platforms[platform]);
+        if (platformList.length === 0) {
+            alert('Please pick at least one platform for the game');
+        }
+        if (imageFile === undefined) {
+            alert('Please upload an image');
+        }
+        const logoUrl = await uploadFile(imageFile, nameGame)
+
+
+    
+
+        const newGameObj = {
+            "QueryName": nameGame,
+            "ReleaseDate": year,
+            "Metacritic": 5,
+            "PriceFinal": price,
+            "logo": logoUrl,
+            "DetailedDescrip": description,
+        };
+
+        let genreUppercase = ["Indie", "Action", "Adventure", "Casual", "RPG", "Simulation",
+        "EarlyAccess", "FreeToPlay", "Sports", "Racing", "MassivelyMultiplayer"]
+        genreUppercase.map((genre) => {
+            newGameObj["GenreIs"+genre] = genres[genre.toLowerCase()];
+        });
+
+        const platformsUppercase = ["Windows", "Mac", "Linux"]
+        platformsUppercase.map((platform) => {
+            newGameObj["Platform"+platform] = platforms[platform.toLowerCase()];
+        });
+        
+
+        const db = getDatabase();
+        const allGamesRef = dbRef(db, "allGames");
+        firebasePush(allGamesRef, newGameObj);
+        alert('Game added successfully!');
     }
 
-    const [imageFile, setImageFile] = useState(undefined)
-    const [selectedImage, setSelectedImage] = useState('./img/uploadphoto.png');
 
     const handleImageChange = (event) => {
         if (event.target.files.length > 0 && event.target.files[0]) {
-            const imageFile = event.target.files[0]
-            setImageFile(imageFile);
-            setSelectedImage(URL.createObjectURL(imageFile));
+            const newImage = event.target.files[0];
+            setImageFile(newImage);
         }
     };
+
+
 
 return (
     <div>
@@ -88,40 +157,45 @@ return (
 
                 <div className="info-input-checkbox">
                     <p> Genres:</p>
-                    <input type="checkbox" id="genre1" name="genre1" value="Indie"/>
+                    <input type="checkbox" id="genre1" name="indie" checked={genres.indie} onChange={handleBox}/>
                     <label for="genre1"> Indie</label>
-                    <input type="checkbox" id="genre2" name="genre2" value="Action"/>
+                    <input type="checkbox" id="genre2" name="action" checked={genres.action} onChange={handleBox}/>
                     <label for="genre2"> Action</label>
-                    <input type="checkbox" id="genre3" name="genre3" value="Adventure"/>
+                    <input type="checkbox" id="genre3" name="adventure" checked={genres.adventure} onChange={handleBox}/>
                     <label for="genre3"> Adventure</label>
-                    <input type="checkbox" id="genre4" name="genre4" value="Casual"/>
+                    <input type="checkbox" id="genre4" name="casual" checked={genres.casual} onChange={handleBox}/>
                     <label for="genre4"> Casual</label>
-                    <input type="checkbox" id="RPG" name="genre5" value="Strategy"/>
+                    <input type="checkbox" id="RPG" name="strategy" checked={genres.strategy} onChange={handleBox}/>
                     <label for="genre5"> Strategy</label>
-                    <input type="checkbox" id="genre6" name="genre6" value="RPG"/>
+                    <input type="checkbox" id="genre6" name="rpg" checked={genres.rpg} onChange={handleBox}/>
                     <label for="genre6"> RPG</label>
-                    <input type="checkbox" id="genre7" name="genre7" value="Simulation"/>
+                    <input type="checkbox" id="genre7" name="simulation" checked={genres.simulation} onChange={handleBox}/>
                     <label for="genre7"> Simulation</label>
-                    <input type="checkbox" id="genre8" name="genre8" value="EarlyAccess"/>
+                    <input type="checkbox" id="genre8" name="earlyaccess" checked={genres.earlyaccess} onChange={handleBox}/>
                     <label for="genre8"> Early Access</label>
-                    <input type="checkbox" id="genre9" name="genre9" value="FreeToPlay"/>
+                    <input type="checkbox" id="genre9" name="freetoplay" checked={genres.freetoplay} onChange={handleBox}/>
                     <label for="genre9"> Free to play</label>
-                    <input type="checkbox" id="genre10" name="genre10" value="Sports"/>
+                    <input type="checkbox" id="genre10" name="sports" checked={genres.sports} onChange={handleBox}/>
                     <label for="genre10"> Sports</label>
-                    <input type="checkbox" id="genre11" name="genre11" value="Racing"/>
+                    <input type="checkbox" id="genre11" name="racing" checked={genres.racing} onChange={handleBox}/>
                     <label for="genre11"> Racing</label>
-                    <input type="checkbox" id="genre12" name="genre12" value="MassivelyMultiplayer"/>
+                    <input type="checkbox" id="genre12" name="massivelymultiplayer" checked={genres.massivelymultiplayer} onChange={handleBox}/>
                     <label for="genre12"> Massively Multiplayer</label>
                 </div>
 
                 <div className="info-input-checkbox">
                     <p> Platforms:</p>
-                    <input type="checkbox" id="windows" name="windows" value="Windows" onChange={handleBox}/>
+                    <input type="checkbox" id="windows" name="windows" checked={platforms.windows} onChange={handlePlatforms}/>
                     <label for="windows"> Windows</label>
-                    <input type="checkbox" id="mac" name="mac" value="Mac" onChange={handleBox}/>
+                    <input type="checkbox" id="mac" name="mac" checked={platforms.mac} onChange={handlePlatforms}/>
                     <label for="mac"> Mac</label>
-                    <input type="checkbox" id="linux" name="linux" value="Linux" onChange={handleBox}/>
+                    <input type="checkbox" id="linux" name="linux" checked={platforms.linux} onChange={handlePlatforms}/>
                     <label for="linux"> Linux</label>
+                </div>
+
+                <div className="info-input">
+                    <label for="year">Release Year:</label>
+                    <input type="number" id="year" name="year" onChange={handleYear} value={year}/>
                 </div>
 
                 <div className="info-input">
@@ -132,6 +206,11 @@ return (
                 <div className="info-input">
                     <label for="description">Description:</label>
                     <textarea id="description" name="description" rows="5" onChange={handleDescription} value={description}></textarea>
+                </div>
+
+                <div className="info-input">
+                    <label for="uploadImage">Upload Image:</label>
+                    <input type="file" accept="image/png, image/jpeg, image/jpg" id="uploadImage" name="uploadImage" onChange={handleImageChange} />
                 </div>
 
                 <div className="add-game-button">
