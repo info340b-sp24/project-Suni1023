@@ -133,6 +133,18 @@ button:hover {
   padding: 3% 0% 0% 11%;
 }
 
+.Botton-container {
+  padding-bottom: 15px;
+}
+
+.container-gamedetail {
+  margin-left: 55.5px;
+}
+
+.saveButton, .resetButton {
+  margin: 10px;
+}
+
 .game-container {
   display: flex;
   flex-direction: row;
@@ -423,20 +435,11 @@ footer {
     align-items: center;
     text-align: center;
     width: 100%;
-}
-
-  .Botton-container {
-    padding-bottom: 15px;
   }
 
   .container-gamedetail {
     margin-left: 127px;
   }
-
-  .saveButton, .resetButton {
-    margin: 10px;
-  }
-
   .game-image {
       width: 400px;
       height: 220px;
