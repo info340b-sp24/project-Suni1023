@@ -146,7 +146,7 @@ export function AddGame(props) {
 
 return (
     <div>
-        <Navbar />
+        <Navbar currentUser={props.currentUser}/>
         <div className="adding-new-game">
             <h1 className="addGameHeader">Add a New Game</h1>
             <form onSubmit={handleSubmit}>

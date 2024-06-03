@@ -20,17 +20,15 @@ export function Homepage(props) {
         setSaveMessage("It's already saved to your list!");
     };
 
+    
+
     return (
         <div>
-            <Navbar />
+            <Navbar currentUser={props.currentUser}/>
             <div className="container">
                 <h1>Having trouble finding new games to play?</h1>
                 <div className="background">
                     <ImageSlider />
-                    {/* <img src="img/gamebg.jpg" alt="This is our background image" aria-label="This is a decorative background image" className="start" />
-                    <img src="img/pic1.jpg" alt="This is our background image" aria-label="This is a decorative background image" className="start" />
-                    <img src="img/pic2.jpg" alt="This is our background image" aria-label="This is a decorative background image" className="start" />
-                    <img src="img/pic4.jpg" alt="This is our background image" aria-label="This is a decorative background image" className="start" /> */}
                 </div>
                 <p>
                     Try our Game Finder! Our website is designed for game recommendation among various genres.
@@ -53,7 +51,7 @@ export function Homepage(props) {
                         <img src={selectedGame.logo} alt={selectedGame.QueryName} aria-label={`This is a game called ${selectedGame.QueryName}`} />
                         <div className="resetsave">
                             <button className="resetButton" onClick={() => setShowGameDetails(false)}>Reset</button>
-                            <button className="saveButton" onClick={handleSaveClick}>Save to my list</button>
+                            <button className="saveButton" onClick={handleSaveClick}>Add a bookmark</button>
                         </div>
                     </div>
                 </div>

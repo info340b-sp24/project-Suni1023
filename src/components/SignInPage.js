@@ -33,7 +33,7 @@ export function SignInPage(props) {
 
   return (
     <div>
-      <Navbar />
+      <Navbar currentUser={props.currentUser}/>
       <div className="container">
         <p><strong>Please sign-in:</strong></p>
         <StyledFirebaseAuth uiConfig={configObj} firebaseAuth={auth} />

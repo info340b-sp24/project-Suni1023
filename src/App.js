@@ -18,6 +18,7 @@ import {BrowserRouter} from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 import * as Static from './components/StaticPages';
+import { Navbar } from 'react-bootstrap';
  
 function App(props) {
   const [currentUser, setCurrentUser] = useState(null);
@@ -48,9 +49,12 @@ function App(props) {
   return (
     
     <div>
+      <Navbar currentUser={currentUser}/>
       <Routes>
         <Route index element={<Static.WelcomePage />} />
         <Route path="/signin" element={<SignInPage currentUser={currentUser} />} />
+        <Route path="*" element={<Static.ErrorPage />} />
+
         <Route path="/Homepage" element={<Homepage currentUser={currentUser} games={props.games}/>}></Route>
         <Route path="/GameLibrary" element={<GameLibrary currentUser={currentUser} games={props.games}/>} />
         <Route path="/GameDetail/:gameId" element={<GameDetail currentUser={currentUser} games={props.games} />} />
@@ -58,7 +62,6 @@ function App(props) {
         <Route path="/SearchPage" element={<SearchPage currentUser={currentUser} games={props.games}/>}></Route>
         <Route path="/AddGame" element={<AddGame currentUser={currentUser} games={props.games}/>}></Route>
         <Route path="/ProfilePage" element={<ProfilePage currentUser={currentUser} games={props.games}/>}></Route>
-        {/* <Route path="*" element={<Static.ErrorPage />} /> */}
       </Routes>
 
       {/* still for testing */}

@@ -142,7 +142,7 @@ export function SearchPage(props) {
 
     return (
         <div>
-            <Navbar />
+            <Navbar currentUser={props.currentUser}/>
             <div className="search-page">
                 <h1 className='search-game-heading'>Search Game</h1>
                 <div className="content-container">

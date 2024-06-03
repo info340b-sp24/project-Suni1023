@@ -11,7 +11,7 @@ export function GameLibrary(props) {
 
     return (
         <div>
-            <Navbar />
+            <Navbar currentUser={props.currentUser}/>
             <div className="game-library">
                 <h1 className="library-title">Game Library</h1>
                 {gameCards}

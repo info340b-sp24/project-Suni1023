@@ -29,7 +29,7 @@ export function GameDetail(props) {
 
     return (
         <div>
-            <Navbar />
+            <Navbar currentUser={props.currentUser}/>
             <div className="detail-container">
                 <img className='detail-img' src={gameData.logo} alt={`Game logo for ${gameData.QueryName}`} />
                 <div className="detail-content">

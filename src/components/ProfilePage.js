@@ -74,7 +74,7 @@ export function ProfilePage(props) {
 
     return (
         <div>
-            <Navbar />
+            <Navbar currentUser={props.currentUser}/>
             <section className="container-fluid text-white bg-header mb-4 py-5">
                 <div className="container">
                     <div className="row">
