@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { getDatabase, ref, set } from "firebase/database";
+import { useSnackbar } from 'notistack';
 
 export function GameCard(props) {
+    const { enqueueSnackbar } = useSnackbar();
     const gameData = props.gameData;
     const currentUser = props.currentUser;
 
     const handleBookmark = () => {
         if (!currentUser) {
-            alert("Please sign in to bookmark games.");
+            enqueueSnackbar("Please sign in to bookmark games.", { variant: 'error' });
             return;
         }
 
@@ -16,10 +18,10 @@ export function GameCard(props) {
         const bookmarkRef = ref(db, 'users/' + currentUser.uid + '/bookmarks/' + gameData.QueryName);
         set(bookmarkRef, gameData)
             .then(() => {
-                alert("Game bookmarked successfully!");
+                enqueueSnackbar("Game bookmarked successfully!", { variant: 'success' });
             })
             .catch((error) => {
-                alert("Error bookmarking game: " + error);
+                enqueueSnackbar("Error bookmarking game: " + error.message, { variant: 'error' });
             });
     };
 
@@ -28,15 +30,12 @@ export function GameCard(props) {
         stars.push(<span key={i} className="full-star">★</span>);
     }
 
-    return ( 
+    return (
         <div className="game-container">
             <img src={gameData.logo} alt={`Game logo for ${gameData.QueryName}`} className="game-image" />
             <div className="game-info">
                 <Link to={`/GameDetail/${gameData.QueryName}`} className="game-title">{gameData.QueryName}</Link>
-                <div className="rating">
-                    {stars} 
-                    <span className="ratio">({gameData.Metacritic}/5)</span>
-                </div>
+                <div className="rating">{stars} <span className="ratio">({gameData.Metacritic}/5)</span></div>
             </div>
             <div className='game-genrel'>
                 <span className='genrel-type'>
@@ -58,3 +57,4 @@ export function GameCard(props) {
         </div>
     );
 }
+

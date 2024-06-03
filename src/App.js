@@ -18,7 +18,8 @@ import {BrowserRouter} from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 import * as Static from './components/StaticPages';
-import { Navbar } from 'react-bootstrap';
+
+import { SnackbarProvider } from 'notistack';
  
 function App(props) {
   const [currentUser, setCurrentUser] = useState(null);
@@ -47,31 +48,32 @@ function App(props) {
   });
 
   return (
-    
-    <div>
-      <Navbar currentUser={currentUser}/>
-      <Routes>
-        <Route index element={<Static.WelcomePage />} />
-        <Route path="/signin" element={<SignInPage currentUser={currentUser} />} />
-        <Route path="*" element={<Static.ErrorPage />} />
+    <SnackbarProvider maxSnack={3} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
+      <div>
+        {/* <Navbar currentUser={currentUser}/> */}
+        <Routes>
+          <Route index element={<Static.WelcomePage />} />
+          <Route path="/signin" element={<SignInPage currentUser={currentUser} />} />
+          <Route path="*" element={<Static.ErrorPage />} />
 
-        <Route path="/Homepage" element={<Homepage currentUser={currentUser} games={props.games}/>}></Route>
-        <Route path="/GameLibrary" element={<GameLibrary currentUser={currentUser} games={props.games}/>} />
-        <Route path="/GameDetail/:gameId" element={<GameDetail currentUser={currentUser} games={props.games} />} />
-        
-        <Route path="/SearchPage" element={<SearchPage currentUser={currentUser} games={props.games}/>}></Route>
-        <Route path="/AddGame" element={<AddGame currentUser={currentUser} games={props.games}/>}></Route>
-        <Route path="/ProfilePage" element={<ProfilePage currentUser={currentUser} games={props.games}/>}></Route>
-      </Routes>
+          <Route path="/Homepage" element={<Homepage currentUser={currentUser} games={props.games}/>}></Route>
+          <Route path="/GameLibrary" element={<GameLibrary currentUser={currentUser} games={props.games}/>} />
+          <Route path="/GameDetail/:gameId" element={<GameDetail currentUser={currentUser} games={props.games} />} />
+          
+          <Route path="/SearchPage" element={<SearchPage currentUser={currentUser} games={props.games}/>}></Route>
+          <Route path="/AddGame" element={<AddGame currentUser={currentUser} games={props.games}/>}></Route>
+          <Route path="/ProfilePage" element={<ProfilePage currentUser={currentUser} games={props.games}/>}></Route>
+        </Routes>
 
-      {/* still for testing */}
-      {/* <Homepage games={props.games} /> */}
-      {/* <GameLibrary games={props.games} /> */}
-      {/* <GameDetail gameData={props.games[2]} /> */}
-      {/* <SearchPage games={props.games} /> */} 
-      {/*<AddGame /> */ }
-      {/* <ProfilePage games={props.games} /> */}
-    </div>
+        {/* still for testing */}
+        {/* <Homepage games={props.games} /> */}
+        {/* <GameLibrary games={props.games} /> */}
+        {/* <GameDetail gameData={props.games[2]} /> */}
+        {/* <SearchPage games={props.games} /> */} 
+        {/*<AddGame /> */ }
+        {/* <ProfilePage games={props.games} /> */}
+      </div>
+    </SnackbarProvider>
   );
 }
 
