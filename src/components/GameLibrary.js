@@ -6,14 +6,14 @@ import Footer from './Footer.js';
 
 export function GameLibrary(props) {
     const gameCards = props.games.map((game) => {
-        return <GameCard key={game.QueryName} gameData={game} />
+        return <GameCard key={game.QueryName} gameData={game} currentUser={props.currentUser} />
     });
 
     return (
         <div>
             <Navbar />
             <div className="game-library">
-                <h1 class="library-title">Game Library</h1>
+                <h1 className="library-title">Game Library</h1>
                 {gameCards}
             </div>
             <Footer />

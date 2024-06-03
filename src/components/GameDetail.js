@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { useParams } from 'react-router-dom';
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
+
 
 export function GameDetail(props) {
     const { gameId } = useParams();
-    const gameData = props.games.find(game => game.QueryName === gameId);
+    const games = props.games || [];
+    const currentUser = props.currentUser;
+    const gameData = games.find(game => game.QueryName === gameId);
+    
+    useEffect(() => {
+        const saveViewingHistory = async () => {
+            if (!currentUser || !gameData) return;
+            const db = getFirestore();
+            const userHistoryRef = doc(db, "users", currentUser.uid, "viewingHistory", gameData.QueryName);
+
+            await setDoc(userHistoryRef, {
+                ...gameData,
+                viewedAt: new Date()
+            });
+        };
+
+        saveViewingHistory();
+    }, [currentUser, gameData]);
 
     if (!gameData) return <p>No game data available.</p>;
 

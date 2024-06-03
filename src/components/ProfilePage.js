@@ -1,20 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { GameCardList } from './GameCardList';
 import { getAuth, signOut } from 'firebase/auth';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
 // TODO: fix broken CSS, clean up the page generally
 // TODO: grab saved games/history from firebase and render it here
 
 export function ProfilePage(props) {
-    // depending on which link is clicked, change state and conditionally render body
+     // depending on which link is clicked, change state and conditionally render body
+
     const [currentTab, setCurrentTab] = useState('publish');
+    const [bookmarkedGames, setBookmarkedGames] = useState([]);
+    const [viewingHistory, setViewingHistory] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const handleTabChange = (tab) => {
         setCurrentTab(tab);
+        if (tab === 'bookmarks') {
+            fetchBookmarkedGames();
+        } else if (tab === 'history') {
+            fetchViewingHistory();
+        }
     }
+
+    const fetchBookmarkedGames = async () => {
+        setLoading(true);
+        try {
+            const db = getFirestore();
+            const bookmarksCollection = collection(db, "users", props.currentUser.uid, "bookmarks");
+            const bookmarksSnapshot = await getDocs(bookmarksCollection);
+            const bookmarksList = bookmarksSnapshot.docs.map(doc => doc.data());
+            console.log('Fetched bookmarked games:', bookmarksList);
+            setBookmarkedGames(bookmarksList);
+        } catch (error) {
+            console.error('Error fetching bookmarked games:', error);
+        }
+        setLoading(false);
+    };
+
+    const fetchViewingHistory = async () => {
+        setLoading(true);
+        try {
+            const db = getFirestore();
+            const historyCollection = collection(db, "users", props.currentUser.uid, "viewingHistory");
+            const historySnapshot = await getDocs(historyCollection);
+            const historyList = historySnapshot.docs.map(doc => doc.data());
+            console.log('Fetched viewing history:', historyList);
+            setViewingHistory(historyList);
+        } catch (error) {
+            console.error('Error fetching viewing history:', error);
+        }
+        setLoading(false);
+    };
+
 
     if (props.currentUser === null) { // if not signed in
         return <Navigate to="/signin" />;
@@ -24,7 +65,7 @@ export function ProfilePage(props) {
         const auth = getAuth();
         signOut(auth).catch(err => console.log(err));
     }
-    
+
     return (
         <div>
             <Navbar />
@@ -58,13 +99,16 @@ export function ProfilePage(props) {
                 </main>
             }
 
-            {currentTab === 'bookmarks' &&
-                <GameCardList games={props.games} />
+            {currentTab === 'bookmarks' && !loading &&
+                <GameCardList games={bookmarkedGames} currentUser={props.currentUser} />
             }
 
-            {currentTab === 'history' &&
-                <GameCardList games={props.games} />
+            {currentTab === 'history' && !loading &&
+                <GameCardList games={viewingHistory} currentUser={props.currentUser} />
             }
+
+            {loading && <p>Loading...</p>}
+
             <Footer />
         </div>
     );
