@@ -293,6 +293,12 @@ button:hover {
   color: #ffcc00;
 }
 
+.no-games-found {
+  justify-content: center;
+  align-items: center;
+  top:0px;
+}
+
 /* FLEXBOXES for Search Page */
 
 .content-container {
@@ -473,7 +479,9 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: left;
+    /* justify-content: left; */
+    justify-content: center;
+    width: 100%; 
   }
 
   .game-container {

@@ -276,7 +276,14 @@ export function SearchPage(props) {
                         </div>
                     </div>
                 </div>
-                <GameCardList games={newGames} />
+                {newGames.length > 0 &&  <GameCardList games={newGames} />}
+                
+                {newGames.length === 0 &&  
+                <div className='game-library'>
+                    <p> No games found</p>
+                </div>
+                }
+               
             </div>
         </div>
         <Footer />
