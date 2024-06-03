@@ -11,6 +11,14 @@ export function GameCard(props) {
 
     return ( 
         <div className="game-container">
+            <img src={gameData.logo} alt={`Game logo for ${gameData.QueryName}`} className="game-image" />
+            <div className="game-info">
+                <Link to={`/GameDetail/${gameData.QueryName}`} className="game-title">{gameData.QueryName}</Link>
+                <div className="rating">
+                    {stars} 
+                    <span className="ratio">({gameData.Metacritic}/5)</span>
+                </div>
+            </div>
             <div className='game-genrel'>
                 <span className='genrel-type'>
                     {gameData.GenreIsIndie && <span className='genreType'><strong>Genre</strong>: Indie </span>}
@@ -26,14 +34,6 @@ export function GameCard(props) {
                     {gameData.GenreIsRacing && <span className='genreType'><strong>Genre</strong>: Racing </span>}
                     {gameData.GenreIsMassivelyMultiplayer && <span className='genreType'><strong>Genre</strong>: Massively Multiplayer </span>}
                 </span>
-            </div>
-            <img src={gameData.logo} alt={`Game logo for ${gameData.QueryName}`} className="game-image" />
-            <div className="game-info">
-                <Link to={`/GameDetail/${gameData.QueryName}`} className="game-title">{gameData.QueryName}</Link>
-                <div className="rating">
-                    {stars} 
-                    <span className="ratio">({gameData.Metacritic}/5)</span>
-                </div>
             </div>
         </div>
     );
