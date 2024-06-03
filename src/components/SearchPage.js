@@ -223,7 +223,7 @@ export function SearchPage(props) {
                     </div>
 
                     <div className="category-container">
-                        <div className="rating">
+                        <div className="rating-search">
                             <h2> Rating</h2>
                             <div className="rating-star">
                                 <label>

@@ -245,6 +245,10 @@ button:hover {
   flex-direction: column;
 }
 
+.rating-search {
+  display: flex;
+  flex-direction: column;
+}
 .rating-star {
   display: flex;
   flex-direction: column;
