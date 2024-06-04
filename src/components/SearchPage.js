@@ -99,7 +99,7 @@ export function SearchPage(props) {
     // First, filter by the search keyword
     newGames = newGames.filter((game) => game.QueryName.startsWith(search));
 
-    // Then, go through all checkbox filters (platform, genre, price)
+    // Then, go through all checkbox filters (platform, genre, price, rating)
     const platforms = ["Windows", "Mac", "Linux"];
     platforms.map((platform) => {
         if (filters[platform.toLowerCase()]) {
@@ -129,6 +129,23 @@ export function SearchPage(props) {
                     return game;
                 }
                 if (game.PriceFinal > 19.99 && price === "highPrice") {
+                    return game;
+                }
+            })
+        }
+    });
+
+    let stars = ["oneStar", "twoStar", "threeStar", "fourStar", "fiveStar"];
+    stars.map((star) => {
+        if (filters[star]) {
+            newGames = newGames.filter((game) => {
+                let includeGame = (game.Metacritic === 1 && star === "oneStar") || 
+                (game.Metacritic === 2 && star === "twoStar") ||
+                (game.Metacritic === 3 && star === "threeStar") ||
+                (game.Metacritic === 4 && star === "fourStar") ||
+                (game.Metacritic === 5 && star === "fiveStar");
+
+                if (includeGame) {
                     return game;
                 }
             })

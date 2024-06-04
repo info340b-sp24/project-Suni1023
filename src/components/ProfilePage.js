@@ -110,10 +110,26 @@ export function ProfilePage(props) {
                 </main>
             }
 
+            {currentTab === 'bookmarks' && bookmarkedGames.length === 0 &&
+                <main>
+                    <div className="container">
+                        <h1 className="profile-prompt">No bookmarks yet. Check out the <a href="/gamelibrary" className="profile-prompt">Game Library</a>!</h1>
+                    </div>
+                </main>
+            }
+            
             {currentTab === 'bookmarks' &&
                 <GameCardList games={bookmarkedGames} currentUser={props.currentUser} />
             }
 
+            {currentTab === 'history' && viewingHistory.length === 0 &&
+                <main>
+                    <div className="container">
+                        <h1 className="profile-prompt">You haven't viewed any games yet. Check out the <a href="/gamelibrary" className="profile-prompt">Game Library</a>!</h1>
+                    </div>
+                </main>
+            }
+            
             {currentTab === 'history' &&
                 <GameCardList games={viewingHistory} currentUser={props.currentUser} />
             }
