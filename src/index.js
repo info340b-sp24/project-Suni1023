@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
-import GAME_DATA from './data/game_data1.json';
+// import GAME_DATA from './data/game_data1.json';
 import App from './App';
 
 import { BrowserRouter } from 'react-router-dom';
@@ -28,15 +28,15 @@ const app = initializeApp(firebaseConfig);
 // Remove duplicates from game data
 // The below code was borrowed/modified from 
 // https://stackoverflow.com/questions/2218999/how-to-remove-all-duplicates-from-an-array-of-objects
-GAME_DATA = GAME_DATA.filter((game1, i, games_arr) => {
-  return games_arr.findIndex((game2) => (game2.QueryName === game1.QueryName)) === i
-});
+// GAME_DATA = GAME_DATA.filter((game1, i, games_arr) => {
+//   return games_arr.findIndex((game2) => (game2.QueryName === game1.QueryName)) === i
+// });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
   <BrowserRouter>
-    <App games={GAME_DATA} />
+    <App />
   </BrowserRouter>,
   // <React.StrictMode>
   //   <App games={GAME_DATA.slice(200, 300)} />

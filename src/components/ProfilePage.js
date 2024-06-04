@@ -67,6 +67,8 @@ export function ProfilePage(props) {
         return <Navigate to="/signin" />;
     }
 
+    const postedByUser = props.games.filter((game) => game.postedBy === props.currentUser.userId);
+
     const signOutCallback = () => {
         const auth = getAuth();
         signOut(auth).catch(err => console.log(err));
@@ -89,18 +91,21 @@ export function ProfilePage(props) {
 
                 <nav className="profile_link_nav">
                     <ul className="profile_links">
-                        <li><a href="#" onClick={() => handleTabChange('publish')}>Publish</a></li>
+                        <li><a href="#" onClick={() => handleTabChange('publish')}>Posted Games</a></li>
                         <li><a href="#" onClick={() => handleTabChange('bookmarks')}>Bookmarks</a></li>
                         <li><a href="#" onClick={() => handleTabChange('history')}>History</a></li>
-                        <li><a href="#" onClick={signOutCallback}>Sign out</a></li>
                     </ul>
                 </nav>
             </section>
 
-            {currentTab === 'publish' &&
+            {currentTab === 'publish' && postedByUser.length > 0 &&
+                <GameCardList games={postedByUser} currentUser={props.currentUser} />
+            }
+
+            {currentTab === 'publish' && postedByUser.length === 0 &&
                 <main>
                     <div className="container">
-                        <h1 className="profile-prompt">You don't have any posts yet. Would you like to <em>post a new review</em> or go to the <em>Game Library?</em></h1>
+                        <h1 className="profile-prompt">You haven't added any games yet. Would you like to <a className="profile-prompt" href="/addgame">add one</a>?</h1>
                     </div>
                 </main>
             }
