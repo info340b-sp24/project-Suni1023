@@ -82,6 +82,11 @@ export function AddGame(props) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        if (props.currentUser === null) {
+            enqueueSnackbar("Please log in to add a game!", { variant: 'error' });
+            return;
+        }
+
         if (!nameGame) {
             enqueueSnackbar("Please fill out the name of the game.", { variant: 'error' });
             return;
@@ -118,6 +123,7 @@ export function AddGame(props) {
             "PriceFinal": price,
             "logo": logoUrl,
             "DetailedDescrip": description,
+            "postedBy": props.currentUser.userId
         };
 
         let genreUppercase = ["Indie", "Action", "Adventure", "Casual", "RPG", "Simulation",
