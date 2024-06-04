@@ -82,6 +82,10 @@ h1 {
   color:#893168;
 }
 
+.profile-name {
+  color: #eaeaea;
+}
+
 /* div .container-gamedetail{
 
 } */
@@ -406,6 +410,11 @@ footer {
 /* copy responsive css for the nav bar */
 .profile-prompt {
   font-size: 10vw;
+  color: black;
+}
+
+.profile_link_nav_2 {
+  background-color: #893168;
 }
 
 @media (max-width: 768px) {

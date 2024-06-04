@@ -84,12 +84,12 @@ export function ProfilePage(props) {
                             <img src="img/default_pfp.png" alt="user profile picture" height="100px" width="100px" />
                         </div>
                         <div className="col-4 col-lg-2 py-4 px-0">
-                            <h1>{props.currentUser.userName}</h1>
+                            <h1 className="profile-name">{props.currentUser.userName}</h1>
                         </div>
                     </div>
                 </div>
 
-                <nav className="profile_link_nav">
+                <nav className="profile_link_nav profile_link_nav_2">
                     <ul className="profile_links">
                         <li><a href="#" onClick={() => handleTabChange('publish')}>Posted Games</a></li>
                         <li><a href="#" onClick={() => handleTabChange('bookmarks')}>Bookmarks</a></li>
