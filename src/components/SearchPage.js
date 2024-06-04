@@ -276,7 +276,7 @@ export function SearchPage(props) {
                         </div>
                     </div>
                 </div>
-                {newGames.length > 0 &&  <GameCardList games={newGames} />}
+                {newGames.length > 0 &&  <GameCardList currentUser={props.currentUser} games={newGames} />}
                 
                 {newGames.length === 0 &&  
                 <div className='game-library'>
