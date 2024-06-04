@@ -18,6 +18,9 @@ Finally, the third feature allows users to bookmark games if they are interested
 at it later.
 
 ## Instructions to Use
+1) Clone the repo
+2) Do 'npm install'
+3) Do 'npm start'
 
 ## Project Link
-https://github.com/info340b-sp24/project-group-5
+https://game-finder-16806.firebaseapp.com/
