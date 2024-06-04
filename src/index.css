@@ -77,6 +77,11 @@ nav .menu-icon span{
   height: auto;
 } 
 
+h1 {
+  font-family: Roboto, sans-serif;
+  color:#893168;
+}
+
 /* div .container-gamedetail{
 
 } */
@@ -464,6 +469,7 @@ footer {
     align-items: center;
     text-align: center;
     width: 100%;
+    font-family: Roboto, sans-serif;
   }
 
   .container-gamedetail {
